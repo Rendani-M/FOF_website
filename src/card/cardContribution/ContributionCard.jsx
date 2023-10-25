@@ -3,7 +3,7 @@ import { Box, Typography, Paper, Grid, CardMedia, Button, Modal } from '@mui/mat
 import { styled } from '@mui/system';
 import StripeContainer from '../../components/payment/StripeContainer';
  
-  const StyledPaper = styled(Paper)(({ theme }) => ({
+  const StyledPaper = styled(Paper)(({ theme }) => ({ 
     padding: theme.spacing(2),
     color: theme.palette.text.secondary,
     margin: '2em'

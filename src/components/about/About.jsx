@@ -3,7 +3,7 @@ import React from 'react';
 import CardEvent from '../../card/cardevent/CardEvent';
 
 function About() {
-  const eventCard = [
+  const eventCard = [ 
       {
           title:'MISSION',
           desc:"At Flames Of Fire, we are on a mission to bring God's love and light to the world. With open hearts, open minds, and open doors, we invite you to join us in this transformative journey of faith, hope, and love. Together, we can make a difference and fulfill our calling to be the hands and feet of Jesus Christ in our world today.",

@@ -6,7 +6,7 @@ import React from 'react'
 // import { makeRequest } from '../../axios';
 // import axios from 'axios';
 
-const ExpandMore = styled((props) => {
+const ExpandMore = styled((props) => { 
     const { expand, ...other } = props;
     return <IconButton {...other} />;
 })(({ theme, expand }) => ({
@@ -14,7 +14,7 @@ const ExpandMore = styled((props) => {
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
-    }),
+    }), 
 }));
 
 function CardVideo() {

@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
-import React from 'react';
+import React from 'react'; 
 
 function Intro() {
   return (
-    <Box 
+    <Box
         sx={{
             position: 'relative',
             height:'100vh', 

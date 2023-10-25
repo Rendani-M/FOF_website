@@ -113,7 +113,7 @@ function Topbar({ sections }) {
                   }}
                   >
                       
-                  <Box sx={{ overflow: 'auto' }}>
+                  <Box sx={{ overflow: 'auto' }}> 
                       {list('left')}
                   </Box>
                 </Drawer>

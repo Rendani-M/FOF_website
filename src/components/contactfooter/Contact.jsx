@@ -75,7 +75,7 @@ function Contact() {
               <Link href="https://www.instagram.com/flamesoffire.ministries/" color="inherit" underline='none' sx={{ wordBreak:"break-all" }}>
                   https://www.instagram.com/flamesoffire.ministries/
               </Link>
-          </Box>
+          </Box> 
       </Box>
     </Box>
   )

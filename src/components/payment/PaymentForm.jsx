@@ -101,7 +101,7 @@ function PaymentForm() {
                   style={{ marginBottom: "10px" }}
                 />
                 <Typography variant="body1" color="textSecondary" component="p" sx={{ paddingY:'1em' }}>
-                  The minimum payment amount is {minimumAmount.toFixed(2)} ZAR.
+                 The exchangeRate is {exchangeRate}, and the minimum payment amount is {minimumAmount.toFixed(2)} ZAR.
                 </Typography>
                 <Button
                   variant="contained"
