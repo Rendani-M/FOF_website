@@ -16,10 +16,9 @@ function Intro() {
         <video autoPlay loop muted
             style={{
               position: "absolute",
-              width: "175%",
-              height: "175%",
-              top: "-40%",
-              left:'-40%',
+              width: "100%",
+              height: "100%",
+              objectFit: 'cover', // Add this line
               zIndex: "-1",
                 border:'2px solid red'
             }}

@@ -44,9 +44,9 @@ function About() {
         <Typography variant='h3' sx={{ mb:'1em', color:'black' }}>
             ABOUT
         </Typography>
-        <Box component={Box} sx={{ width:'95%', height:'100%', 
-            display:'flex', alignItems:'center',
-            flexDirection:'row', justifyContent:'space-around', gap:'1em'}}>
+        <Box sx={{ width:'95%', height:'100%', 
+            display:'flex', alignItems:'center', padding:{xs:'2em', sm:'2em', md:'0'},
+            flexDirection:{xs:'column', sm:'column' ,md:'row'}, justifyContent:'space-around', gap:'1em'}}>
             <CardEvent title={eventCard[0].title} desc={eventCard[0].desc} img={eventCard[0].img} focus={true}/>
             <CardEvent title={eventCard[1].title} desc={eventCard[1].desc} img={eventCard[1].img} focus={true}/>
             <CardEvent title={eventCard[2].title} desc={eventCard[2].desc} img={eventCard[2].img} focus={true}/>

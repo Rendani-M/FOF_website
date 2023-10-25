@@ -5,10 +5,20 @@ import { motion } from 'framer-motion';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Home, Logout, Menu, People, PersonOutline } from '@mui/icons-material';
+import { Home, Logout, People, PersonOutline } from '@mui/icons-material';
 import { Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = [
+  {
+    title:"Home",
+    link:'/'
+  }, 
+  {
+    title:"Contribute",
+    link:'/contributions'
+  }
+];
 const MotionBox = motion(Box);
 const MemoizedMotionBox = React.memo(MotionBox, (prevProps, nextProps) => {
     // Only re-render if backGColor changes
@@ -16,7 +26,7 @@ const MemoizedMotionBox = React.memo(MotionBox, (prevProps, nextProps) => {
   });
 
 function Topbar({ sections }) {
-  
+  const navigate = useNavigate();
   const [backGColor, setBackGColor] = useState('none');
   const [isIntroOrAbout, setIsIntroOrAbout] = useState("");
   const [state, setState] = useState({
@@ -31,8 +41,8 @@ function Topbar({ sections }) {
     }, [sections]);
 
     useEffect(() => {
-      isIntroOrAbout === 'about'? setBackGColor('black'):setBackGColor('none');
-      console.log("eish");
+      isIntroOrAbout === 'intro'? setBackGColor('none'):setBackGColor('black');
+      
     }, [isIntroOrAbout]);
 
     const toggleDrawer = (anchor, open) => (event) => {
@@ -85,6 +95,7 @@ function Topbar({ sections }) {
         </List>
       </Box>
     );
+    
     return (
       <Box sx={{ display: 'flex' }}>
         <AppBar component="nav" sx={{ background:'none' }}>
@@ -107,25 +118,17 @@ function Topbar({ sections }) {
                   </Box>
                 </Drawer>
               </Box>
-              <Button
-                edge="start"
-                aria-label="open drawer"
-                sx={{ borderRadius: 10, marginRight:'1em', justifyContent: 'center' }}
-                variant="contained"
-                startIcon={<Menu />}
-                onClick={toggleDrawer('left', true)}
-              />
               <Typography
                 variant="h6"
                 component="div"
-                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md:'block' } }}
               >
                 FLAMES OF FIRE MINISTRIES
               </Typography>
-              <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+              <Box sx={{ display: 'flex', justifyContent:'space-between', width:{xs:'100%', sm:'100%', md:'20%'} }}>
                 {navItems.map((item) => (
-                  <Button key={item} sx={{ color: '#fff' }}>
-                    {item}
+                  <Button key={item.title} sx={{ color: '#fff' }} onClick={()=>navigate(item.link)}>
+                    {item.title}
                   </Button>
                 ))}
               </Box> 

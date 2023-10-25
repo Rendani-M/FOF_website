@@ -40,7 +40,7 @@ function Home() {
   }, []);
 
   return (
-    <Box ref={boxRef} sx={{ width:'100%', height:'100%', overflowX:'hidden'}}>
+    <Box ref={boxRef} sx={{ width:'100%', height:'100%'}}>
       <div ><Topbar sections={currentSection}/></div>
       <div id="intro"><Intro/></div>
       <div id="about"><About/></div>

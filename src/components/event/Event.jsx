@@ -31,7 +31,7 @@ function Event() {
             date:"07/12/2023"
         }
     ];
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(2);
     const handleChange = (event, value) => {
         setPage(value);
     };
@@ -50,21 +50,21 @@ function Event() {
                 
                 <AnimatePresence>
                     {page > 1 && 
-                        <Box sx={{ width: "30%" }}>
+                        <Box sx={{ width: "30%", display:{xs:'none', sm:'block'}  }}>
                             <motion.div key={page-2} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                                         style={{ display: 'flex', justifyContent: 'right', alignItems: 'center' }}>
                                 <CardEvent title={eventCard[page-2].title} desc={eventCard[page-2].desc} img={eventCard[page-2].img} focus={false} date={eventCard[page-2].date}/>
                             </motion.div>
                         </Box>
                     }
-                    <Box sx={{ width: "40%" }}>
+                    <Box sx={{ width: {xs:'90%', sm:'40%'}}}>
                         <motion.div key={page-2} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                                     style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <CardEvent title={eventCard[page-1].title} desc={eventCard[page-1].desc} img={eventCard[page-1].img} focus={true} date={eventCard[page-1].date}/>
                         </motion.div>
                     </Box>
                     {page < eventCard.length && 
-                        <Box sx={{ width: "30%" }}>
+                        <Box sx={{ width: "30%", display:{xs:'none', sm:'block'}  }}>
                             <motion.div key={page-2} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                                         style={{ display: 'flex', justifyContent: 'left', alignItems: 'center' }}>
                                 <CardEvent title={eventCard[page].title} desc={eventCard[page].desc} img={eventCard[page].img} focus={false} date={eventCard[page].date}/>
