@@ -19,8 +19,7 @@ function Intro() {
               width: "100%",
               height: "100%",
               objectFit: 'cover', // Add this line
-              zIndex: "-1",
-                border:'2px solid red'
+              zIndex: "-1"
             }}
         >
             <source src='FOF_Animated_Background.mp4' type="video/mp4" />

@@ -7,6 +7,31 @@ import Event from '../../components/event/Event'
 import Video from '../../components/feature/video/Video'
 import Contact from '../../components/contactfooter/Contact'
 import Services from '../../components/services/Services'
+import { CssBaseline } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: `
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #000; 
+          border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #555; 
+        }
+      `,
+    },
+  },
+});
 
 function Home() {
   const [currentSection, setCurrentSection] = useState('');
@@ -40,15 +65,18 @@ function Home() {
   }, []);
 
   return (
-    <Box ref={boxRef} sx={{ width:'100%', height:'100%'}}>
-      <div ><Topbar sections={currentSection}/></div>
-      <div id="intro"><Intro/></div>
-      <div id="about"><About/></div>
-      <div id="services"><Services/></div>
-      <div id="video"><Video/></div>
-      <div id="event"><Event/></div>
-      <div id="contact"><Contact/></div>
-    </Box>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box ref={boxRef} sx={{ width:'100%', height:'100%'}}>
+        <div ><Topbar sections={currentSection}/></div>
+        <div id="intro"><Intro/></div>
+        <div id="about"><About/></div>
+        <div id="services"><Services/></div>
+        <div id="video"><Video/></div>
+        <div id="event"><Event/></div>
+        <div id="contact"><Contact/></div>
+      </Box>
+    </ThemeProvider>
   )
 }
 

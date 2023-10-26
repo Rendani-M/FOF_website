@@ -1,38 +1,40 @@
 import React, { useState } from 'react';
-import { Box, Typography, Paper, Grid, CardMedia, Button, Modal } from '@mui/material';
+import { Box, Typography, Paper, Grid, CardMedia, Button, Modal, useTheme, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/system';
 import StripeContainer from '../../components/payment/StripeContainer';
- 
-  const StyledPaper = styled(Paper)(({ theme }) => ({ 
+
+const StyledPaper = styled(Paper)(({ theme }) => ({ 
     padding: theme.spacing(2),
     color: theme.palette.text.secondary,
     margin: '2em'
-  }));
+}));
   
-  const StyledCardMedia = styled(CardMedia)({
-      height: '100%'
-  });
-  
-  const style = {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: '60vw', 
-      bgcolor: 'background.paper',
-      boxShadow: 24,
-      p: 0,
-      height:'70%', 
-      display: 'flex',
-      flexDirection:'column',
-      alignItems:'center',
-      backgroundColor: '#ecececc0'
-  };
+const StyledCardMedia = styled(CardMedia)({
+    height: '100%'
+});
 
 function ContributionCard({title, desc, img}) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const theme = useTheme();
+    const isXs = useMediaQuery(theme.breakpoints.down('xs'));
+    const isSm = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+
+    const style = {
+        position: 'absolute', 
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: isXs ? '98vw' : isSm ? '85vw' : '70vw',
+        minHeight: isXs ? '90%' : isSm ? '85%' : '70%', 
+        display: 'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        p: 1,
+        bgcolor: '#ffffff',
+        borderRadius:'0.3em'
+    };
   return (
     <StyledPaper>
         <Grid container spacing={2}>
@@ -53,10 +55,10 @@ function ContributionCard({title, desc, img}) {
                             aria-describedby="modal-modal-description"
                         >
                             
-                            <Paper elevation={3} sx={style}>
+                            <Box sx={style}>
                                 <Typography variant="h5" gutterBottom sx={{ marginTop:'1em' }}>{title}</Typography>
                                 <StripeContainer />
-                            </Paper>
+                            </Box>
                         </Modal>
                     </Box>
                 </Box>

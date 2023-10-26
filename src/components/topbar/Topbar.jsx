@@ -41,7 +41,7 @@ function Topbar({ sections }) {
     }, [sections]);
 
     useEffect(() => {
-      isIntroOrAbout === 'intro'? setBackGColor('none'):setBackGColor('black');
+      isIntroOrAbout === 'intro'? setBackGColor('black'):setBackGColor('black');
       
     }, [isIntroOrAbout]);
 
@@ -125,7 +125,7 @@ function Topbar({ sections }) {
               >
                 FLAMES OF FIRE MINISTRIES
               </Typography>
-              <Box sx={{ display: 'flex', justifyContent:'space-between', width:{xs:'100%', sm:'100%', md:'20%'} }}>
+              <Box sx={{ display: 'flex', justifyContent:'space-between', width:{xs:'100%', sm:'100%', md:'17.5%'}, marginRight:'1.5em' }}>
                 {navItems.map((item) => (
                   <Button key={item.title} sx={{ color: '#fff' }} onClick={()=>navigate(item.link)}>
                     {item.title}
