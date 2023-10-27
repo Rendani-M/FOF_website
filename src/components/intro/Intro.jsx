@@ -24,8 +24,15 @@ function Intro() {
         >
             <source src='FOF_Animated_Background.mp4' type="video/mp4" />
         </video>
-        <img src='church_logo.png' alt=''>
-        </img>
+        <img 
+          src='church_logo.png' 
+          alt=''
+          style={{
+            maxWidth: "90%", // This will make the image responsive
+            maxHeight: "90%", // Adjust as needed
+            objectFit: 'contain' // This will maintain the aspect ratio of the image
+          }}
+        />
     </Box>
   )
 }

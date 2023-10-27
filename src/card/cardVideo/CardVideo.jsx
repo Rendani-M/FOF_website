@@ -1,12 +1,9 @@
-// import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Box, Card, CardActions, CardContent,  IconButton,  Typography } from '@mui/material'
 import React from 'react'
-// import { makeRequest } from '../../axios';
-// import axios from 'axios';
 
-const ExpandMore = styled((props) => { 
+const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
 })(({ theme, expand }) => ({
@@ -14,7 +11,7 @@ const ExpandMore = styled((props) => {
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
-    }), 
+    }),
 }));
 
 function CardVideo() {
@@ -58,12 +55,12 @@ function CardVideo() {
                         odit ipsum cumque.
                     </Typography>
                 </Box>
-                <CardActions disableSpacing sx={{ display:{ xs: expanded ? 'none' : 'block', sm: expanded ? 'none' : 'block', md: expanded ? 'none' : 'block', lg: 'none' } }}>
+                <CardActions disableSpacing sx={{ display:{ xs: 'block', sm:'block', md:'block', lg: 'none' }}}>
                     <ExpandMore
-                    expand={expanded}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
+                        expand={expanded} // pass the expanded state as a prop
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
                     >
                         <ExpandMoreIcon />
                     </ExpandMore>

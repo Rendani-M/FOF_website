@@ -41,7 +41,7 @@ function About() {
                backgroundColor: '#ecececc0',
                color: '#000',
           }}>
-        <Typography variant='h3' sx={{ mb:'1em', color:'black' }}>
+        <Typography variant='h3' sx={{ mb:'1em', color:'black', display:'flex', justifyContent:'center' }}>
             ABOUT
         </Typography>
         <Box sx={{ width:'95%', height:'100%', 

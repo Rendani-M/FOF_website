@@ -7,7 +7,7 @@ function Services() {
     const eventCard = [
         {
             title:'MENS MINISTRY',
-            desc:"Men’s Ministry is a dedicated branch of our church that focuses on the spiritual growth and fellowship of men. Our mission is to empower men to lead, influence, and grow in their faith. We provide a supportive environment where men can discuss and explore their faith, engage in meaningful conversations, and build strong relationships with other members of the church. We organize regular bible studies, workshops, retreats, and service projects that allow men to connect with each other and serve the community. Whether you’re new to the faith or seeking to deepen your relationship with God, Men’s Ministry is here to support you on your spiritual journey.",
+            desc:"Men’s Ministry is a dedicated branch of our church that focuses on the spiritual growth and fellowship of men. Our mission is to empower men to lead, influence, and grow in their faith. We provide a supportive environment where men can discuss and explore their faith, engage in meaningful conversations, and build strong relationships with other members of the church. We organize regular bible studies, workshops, retreats, and service projects that allow men to connect with each other and serve the community.",
             img:"https://www.apostolic.edu/wp-content/uploads/2015/08/4.featuredimage.jpg"
         },
         {
@@ -50,7 +50,7 @@ function Services() {
                  color: '#000',
                  paddingBottom:'13em'
             }}>
-          <Typography variant='h3' sx={{ mb:'1em', color:'black' }}>
+          <Typography variant='h3' sx={{ mb:'1em', color:'black', display:'flex', justifyContent:'center' }}>
               Our Serivces
           </Typography>
           <Box sx={{ width:'100%', height:'100%', 

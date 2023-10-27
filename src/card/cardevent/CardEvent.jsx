@@ -1,22 +1,17 @@
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Modal, Paper, Typography } from '@mui/material'
+import { Box, Button, Card, CardActions, CardContent, CardMedia, CssBaseline, Modal,  ThemeProvider, Typography, createTheme } from '@mui/material'
 import React, { useState } from 'react'
-import { Grid } from '@mui/material';
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '60vw', 
-    bgcolor: 'background.paper',
-    boxShadow: 24,
-    p: 0,
-    height:'60vh', 
-    display: 'flex',
-    justifyContent:'space-between',
-    overflow: 'auto' // Add this line
-};
-
+const theme = createTheme({
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: `
+          ::-webkit-scrollbar {
+            width: 0px;
+          }
+        `,
+      },
+    },
+});
 
 function CardEvent({title, desc, img, focus, date}) {
     const [open, setOpen] = useState(false);
@@ -35,7 +30,7 @@ function CardEvent({title, desc, img, focus, date}) {
                 image={img? img: "https://i.pinimg.com/1200x/d8/d2/68/d8d268ab051da48fb177a8aa08f90410.jpg"}
             />
 
-            <CardContent sx={{ mb:'0.5em', height: focus ? '32%' : '36%', overflowY: 'hidden' }}>
+            <CardContent sx={{ mb:'0.5em', height: focus ? '36%' : '36%', overflowY: 'hidden' }}>
                 <Typography gutterBottom variant="h5" component="div">
                     {title}
                 </Typography>
@@ -69,11 +64,23 @@ function CardEvent({title, desc, img, focus, date}) {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-
-                    <Paper elevation={3} sx={style}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12} sm={6}>
-                                <Box sx={{ padding:'3em' }}>
+                    <ThemeProvider theme={theme}>
+                        <CssBaseline />
+                        <Box sx={{ overflowY:'auto',
+                                    position: 'absolute',
+                                    top: '50%',
+                                    left: '50%',
+                                    transform: 'translate(-50%, -50%)',
+                                    width: '70vw', 
+                                    bgcolor: 'background.paper',
+                                    boxShadow: 24,
+                                    p: 0,
+                                    maxHeight:'80vh', 
+                                    display: 'flex',
+                                    justifyContent:'space-between' }}>
+                            
+                            <Box sx={{ display:'flex', flexDirection:{xs:'column-reverse', sm:'column-reverse', md:'row'}, height:'auto' }}>
+                                <Box sx={{ padding:'2em', width:{sm:'100%', md:'55%'}, overflow:'visible', height:{xs:'70%',sm:'70%',md:'100%'} }}>
                                     <Typography id="modal-modal-title" variant="h6" component="h2">
                                         {title}
                                     </Typography>
@@ -83,14 +90,12 @@ function CardEvent({title, desc, img, focus, date}) {
                                         {desc}
                                     </Typography>
                                 </Box>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <Box sx={{ height: '100%' }}>
-                                    <img src={img? img: "https://i.pinimg.com/1200x/d8/d2/68/d8d268ab051da48fb177a8aa08f90410.jpg"} alt="" style={{ width: '100%', height: '100%', objectFit: 'fill' }} />
+                                <Box sx={{ height: '101%', width:{sm:'100%', md:'45%'} }}>
+                                    <img src={img? img: "https://i.pinimg.com/1200x/d8/d2/68/d8d268ab051da48fb177a8aa08f90410.jpg"} alt="" style={{ width: '100%', height: '100%', objectFit: 'fit' }} />
                                 </Box>
-                            </Grid>
-                        </Grid>
-                    </Paper>
+                            </Box>
+                        </Box>
+                    </ThemeProvider>
                 </Modal>
             </CardActions>
         </Card>

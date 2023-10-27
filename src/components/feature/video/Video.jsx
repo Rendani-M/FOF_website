@@ -13,7 +13,7 @@ function Video() {
                 flexDirection:'column', 
                 justifyContent:'center', 
                 backgroundColor: '#ecececc0'}}>
-        <Typography variant='h3' sx={{ mb:'1em', color:'black' }}>
+        <Typography variant='h3' sx={{ mb:'1em', color:'black', display:'flex', justifyContent:'center' }}>
             Most Popular Video
         </Typography>
         <CardVideo/>
