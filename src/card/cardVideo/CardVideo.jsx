@@ -22,7 +22,7 @@ function CardVideo() {
     };
     
     return (
-        <Card sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'column', md: 'column', lg:'row' }, width: '80%', paddingBottom: '1em' }}>
+        <Card sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'column', md: 'column', lg:'row' }, width: {xs:'90%',sm:'80%'}, paddingBottom: '1em' }}>
             <Box sx={{ width: { xs: '100%',  sm: '100%', md: '100%', lg: '60%' }, height: { xs: '180px', sm:'400px', md: '400px', lg: 'auto'  }, overflow: 'hidden' }}>
                 <iframe width="100%" height="100%" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fkeflamesoffire%2Fvideos%2F248855884183390%2F&show_text=true" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen> 
                 </iframe>
