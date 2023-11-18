@@ -13,11 +13,12 @@ const navItems = [
   {
     title:"Home",
     link:'/'
-  }, 
-  {
-    title:"Contribute",
-    link:'/contributions'
   }
+  // , 
+  // {
+  //   title:"Contribute",
+  //   link:'/contributions'
+  // }
 ];
 const MotionBox = motion(Box);
 const MemoizedMotionBox = React.memo(MotionBox, (prevProps, nextProps) => {
@@ -125,7 +126,8 @@ function Topbar({ sections }) {
               >
                 FLAMES OF FIRE MINISTRIES
               </Typography>
-              <Box sx={{ display: 'flex', justifyContent:'space-between', width:{xs:'100%', sm:'100%', md:'17.5%'}, marginRight:'1.5em' }}>
+              {/* when contribution works make justifyContent:'space-between'*/}
+              <Box sx={{ display: 'flex', justifyContent:'end', width:{xs:'100%', sm:'100%', md:'17.5%'}, marginRight:'1.5em' }}>
                 {navItems.map((item) => (
                   <Button key={item.title} sx={{ color: '#fff' }} onClick={()=>navigate(item.link)}>
                     {item.title}
