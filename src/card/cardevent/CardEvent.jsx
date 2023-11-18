@@ -20,7 +20,7 @@ function CardEvent({title, desc, img, focus, date}) {
     return (
         <Card sx={{ 
             width: focus ? "90%" : "80%", 
-            height: focus ? '33em' : '25%',
+            height: focus ? '34em' : '25%',
             transition: 'all 0.5s ease' // Add transition for smooth resizing
         }}>
             <CardMedia
@@ -30,7 +30,7 @@ function CardEvent({title, desc, img, focus, date}) {
                 image={img? img: "https://i.pinimg.com/1200x/d8/d2/68/d8d268ab051da48fb177a8aa08f90410.jpg"}
             />
 
-            <CardContent sx={{ mb:'0.5em', height: focus ? '36%' : '36%', overflowY: 'hidden' }}>
+            <CardContent sx={{ mb:'0.5em', height: focus ? '40%' : '36%', overflowY: 'hidden' }}>
                 <Typography gutterBottom variant="h5" component="div">
                     {title}
                 </Typography>
@@ -38,7 +38,7 @@ function CardEvent({title, desc, img, focus, date}) {
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     display: '-webkit-box',
-                    WebkitLineClamp: focus ? 7 : 1, // Adjust based on your needs
+                    WebkitLineClamp: focus ? 5 : 1, // Adjust based on your needs
                     WebkitBoxOrient: 'vertical'
                 }}>
                     {focus? desc: ""}
@@ -49,7 +49,7 @@ function CardEvent({title, desc, img, focus, date}) {
                         <Typography variant="span" color="text.secondary">
                             Date: {date}
                         </Typography>
-                        <hr />
+                        <hr style={{ marginBottom:'1em' }}/>
                     </>
                     ) : null
                 }

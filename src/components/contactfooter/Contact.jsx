@@ -12,7 +12,7 @@ function Contact() {
   return (
     <Box sx={{ 
                display:'flex', 
-               alignItems:'center',
+               alignItems:{ xs: 'center', md:'start' },
                justifyContent:{ xs: 'center', md: 'space-around' },
                gap:'2em',
                padding:'2em',
@@ -26,32 +26,32 @@ function Contact() {
         <Typography variant="h4" gutterBottom>Contact Us</Typography>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <EmailIcon />
-          <Typography variant="body1">email@example.com</Typography>
+          <Typography variant="body1">info@flamesoffire.co.za</Typography>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <PhoneIcon />
-          <Typography variant="body1">+1234567890</Typography>
+          <Typography variant="body1">(+27)11 859 1030</Typography>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <WhatsAppIcon />
-          <Typography variant="body1">+1234567890</Typography>
+          <Typography variant="body1">(+27)833077132</Typography>
         </Box>
       </Box>
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '2em', marginBottom: '1em', width:{xs:'100%', sm:'100%', md:'33%'} }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1em', marginBottom: '1em', width:{xs:'100%', sm:'100%', md:'33%'} }}>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <Typography variant="h4" gutterBottom>LOCATION</Typography>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <LocationOnIcon />
-          <Typography variant="body1">Zakariya Park (MAIN BRANCH): </Typography>
+          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Zakariya Park (MAIN BRANCH): </Typography>797 Clove drive Zakariya Park, Johannesburg</Typography>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <LocationOnIcon />
-          <Typography variant="body1">Soweto Mfolo:</Typography>
+          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Soweto Mfolo: </Typography>732 Ramapulane street, Mofolo South, Soweto</Typography>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <LocationOnIcon />
-          <Typography variant="body1">Rustavaal:</Typography>
+          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Rustavaal:</Typography> 660 Ramaphosa Settlement, Rustervaal</Typography>
         </Box>
       </Box>
 

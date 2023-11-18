@@ -7,17 +7,17 @@ function About() {
       {
           title:'MISSION',
           desc:"At Flames Of Fire, we are on a mission to bring God's love and light to the world. With open hearts, open minds, and open doors, we invite you to join us in this transformative journey of faith, hope, and love. Together, we can make a difference and fulfill our calling to be the hands and feet of Jesus Christ in our world today.",
-          img:"Mission.png"
+          img:"Mission_Image.png"
       },
       {
-          title:'VERSE OF THE DAY',
-          desc:'John 3:16 [NKJV] For God so loved the world that He gave His only begotten Son, that whoever believes in Him should not perish but have everlasting life.',
-          img:"Bible_Quote.png"
+          title:'VERSE OF THE YEAR',
+          desc:'Ephesians 2:8-91 “For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God— not by works, so that no one can boast.”',
+          img:"Verse_image.png"
       },
       {
-          title:'QUOTE',
-          desc:"As a pastor, I am humbled and honored to walk beside you on your spiritual journey. Together, let us seek God's light in every moment, for it is in the darkest times that His love shines brightest. - [Apostle Alfred Makhavhu]",
-          img:"Quote.png"
+          title:'THEME OF THE YEAR',
+          desc:"Welcome to 'The Year of Turnaround'—a divine journey of transformation and renewal within our church community. As we embrace this empowering theme, we embark on a collective pilgrimage toward positive change, spiritual breakthroughs, and a reawakening of purpose. Together, we'll navigate the year trusting that this year holds the promise of extraordinary shifts in our lives and in the church of Jesus. Join us in prayer, reflection, and action as we seek a profound turnaround in our hearts, our relationships, and our community. May this year be a testament to the miraculous power of faith and the boundless possibilities of a spiritual turnaround.",
+          img:"Theme_of_the_year.png"
       },
       {
           title:'Title 4',

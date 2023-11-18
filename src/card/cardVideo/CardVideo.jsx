@@ -40,19 +40,13 @@ function CardVideo() {
                 </CardContent>
                 <Box sx={{ display:'flex', justifyContent:'center' }}>
                     <Typography sx={{ width:'70%', textAlign:'justify', display:{ xs: expanded ? 'block' : 'none', sm: expanded ? 'block' : 'none', md: expanded ? 'block' : 'none', lg: 'block' } }}>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        Expedita illum sequi ex animi quaerat nihil dignissimos fuga 
-                        distinctio? Quaerat accusamus tenetur voluptas sed ipsum tempora 
-                        consectetur voluptatibus ducimus hic velit nobis voluptatum, 
-                        pariatur, nihil beatae! Non corrupti quisquam optio dolorum 
-                        molestiae possimus, quia recusandae eius, consequuntur aut ullam 
-                        ut perspiciatis ex aliquid nobis exercitationem delectus adipisci 
-                        cum quaerat culpa alias beatae. Suscipit facilis laboriosam, 
-                        nostrum distinctio aliquam perspiciatis atque at nihil tenetur 
-                        minima iure autem nam dolorem dignissimos obcaecati dolores ea 
-                        esse! Reiciendis fugiat magni vel veniam ducimus maiores, 
-                        veritatis nobis perspiciatis! Beatae molestiae, id labore nisi 
-                        odit ipsum cumque.
+                        Gather in the digital sanctuary every week for a soul-enriching experience with our online teachings. 
+                        Apostle Alfred Makhavhu shares in the wisdom of timeless teachings from the word of God.  
+                        Our weekly online teaching sessions are not just about words; they're about connection, reflection, 
+                        and the shared pursuit of a deeper understanding of our faith in the Lord Jesus Christ. 
+                        Join us as we navigate in the digital age, fostering a sense of fellowship and ministry that transcends screens. 
+                        May these online teachings be a source of inspiration, solace, and spiritual growth as we navigate 
+                        the path of devotion together.
                     </Typography>
                 </Box>
                 <CardActions disableSpacing sx={{ display:{ xs: 'block', sm:'block', md:'block', lg: 'none' }}}>
