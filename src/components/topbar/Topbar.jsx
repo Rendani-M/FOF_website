@@ -127,7 +127,7 @@ function Topbar({ sections }) {
                 FLAMES OF FIRE MINISTRIES
               </Typography>
               {/* when contribution works make justifyContent:'space-between'*/}
-              <Box sx={{ display: 'flex', justifyContent:'end', width:{xs:'100%', sm:'100%', md:'17.5%'}, marginRight:'1.5em' }}>
+              <Box sx={{ display: 'flex', justifyContent:'end', width:{xs:'100%', sm:'100%', md:'17.5%'} }}>
                 {navItems.map((item) => (
                   <Button key={item.title} sx={{ color: '#fff' }} onClick={()=>navigate(item.link)}>
                     {item.title}

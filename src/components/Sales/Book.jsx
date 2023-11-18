@@ -18,7 +18,7 @@ function Book() {
                 height:'100%', 
                 display:'flex', 
                 alignItems:'center', 
-                padding:'8em 26em',
+                padding:{xs: '0 0', sm:'8em 12em', md:'8em 12em', lg:'8em 12em'},
                 paddingBottom:'13em',
                 flexDirection:'column', 
                 justifyContent:'center', 

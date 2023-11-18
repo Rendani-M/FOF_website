@@ -57,7 +57,7 @@ function Event() {
                             </motion.div>
                         </Box>
                     }
-                    <Box sx={{ width: {xs:'90%', sm:'40%'}}}>
+                    <Box sx={{ width: {xs:'100%', sm:'40%'}}}>
                         <motion.div key={page-2} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                                     style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <CardEvent title={eventCard[page-1].title} desc={eventCard[page-1].desc} img={eventCard[page-1].img} focus={true} date={eventCard[page-1].date}/>

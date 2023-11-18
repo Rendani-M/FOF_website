@@ -19,7 +19,7 @@ function CardEvent({title, desc, img, focus, date}) {
     const handleClose = () => setOpen(false);
     return (
         <Card sx={{ 
-            width: focus ? "90%" : "80%", 
+            width: {sx: focus ? "100%" : "80%", sm: focus ? "90%" : "80%"}, 
             height: focus ? '34em' : '25%',
             transition: 'all 0.5s ease' // Add transition for smooth resizing
         }}>
