@@ -7,28 +7,28 @@ import { AnimatePresence, motion } from 'framer-motion'; // Import these
 function Event() {
     const eventCard = [
         {
+            title:'POWER SERVICE',
+            desc:"Join us for a transformative and empowering experience at our upcoming Power Service, an extraordinary gathering where the presence of God is magnified through fervent prayer and an immersive exploration of His Word. This unique service goes beyond the traditional Sunday worship, offering a dedicated space for individuals to seek spiritual rejuvenation and divine intervention. At Power Service, we prioritize prayer, creating an atmosphere where participants can bring their needs, burdens, and aspirations before the Almighty. This isn't just another church service; it's an opportunity to encounter the supernatural and embrace the extraordinary power of God in your life.",
+            img:"Service.jpeg",
+            date:"19 November 2023"
+        },
+        {
             title:'WOMENS MINISTRY',
             desc:"At Flames Of Fire, we are on a mission to bring God's love and light to the world. With open hearts, open minds, and open doors, we invite you to join us in this transformative journey of faith, hope, and love. Together, we can make a difference and fulfill our calling to be the hands and feet of Jesus Christ in our world today.",
             img:"https://www.apostolic.edu/wp-content/uploads/2014/02/womens_ministry-1.jpg",
-            date:"19/08/2023"
+            date:"25 November 2023"
         },
         {
             title:'MENS MINISTRY',
             desc:"At Flames Of Fire, we are on a mission to bring God's love and light to the world. With open hearts, open minds, and open doors, we invite you to join us in this transformative journey of faith, hope, and love. Together, we can make a difference and fulfill our calling to be the hands and feet of Jesus Christ in our world today.",
             img:"https://www.apostolic.edu/wp-content/uploads/2015/08/4.featuredimage.jpg",
-            date:"27/08/2023"
-        },
-        {
-            title:'POWER SERVICE',
-            desc:'John 3:16 [NKJV] For God so loved the world that He gave His only begotten Son, that whoever believes in Him should not perish but have everlasting life.',
-            img:"https://www.christiantruthcenter.com/wp-content/uploads/2021/08/Sunday-Service.png",
-            date:"15/08/2023"
+            date:"26 November 2023"
         },
         {
             title:'THANKSGIVING CONFERENCE',
-            desc:'John 3:16 [NKJV] For God so loved the world that He gave His only begotten Son, that whoever believes in Him should not perish but have everlasting life.',
-            img:"https://www.christiantruthcenter.com/wp-content/uploads/2021/08/Sunday-Service.png",
-            date:"07/12/2023"
+            desc:"Join us for our annual Thanksgiving Conference—a unique gathering at the year's end to express gratitude for God's faithfulness.This exclusive event is a time of worship, praise, and reflection on the year's blessings. Our diverse and amazing speakers will deliver awe-inspiring messages rooted in the Word of God. Don't miss this opportunity to come together as a church family, celebrate victories, and leave with a renewed sense of awe and appreciation.",
+            img:"https://images.squarespace-cdn.com/content/v1/5e0505b89c5adf2f773e0ac6/1596995968580-TWKCQ53N72LHOTPV31V9/5-PRAISE-WORSHIP-SONGS-CHORD-PROGRESSIONS-YOU-SHOULD-KNOW-yallemedia.com_.jpg",
+            date:"01 - 03 December 2023"
         }
     ];
     const [page, setPage] = useState(2);

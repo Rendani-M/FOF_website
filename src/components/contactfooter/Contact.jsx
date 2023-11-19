@@ -47,11 +47,11 @@ function Contact() {
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <LocationOnIcon />
-          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Soweto Mfolo: </Typography>732 Ramapulane street, Mofolo South, Soweto</Typography>
+          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Soweto Mofolo: </Typography>732 Ramapulane street, Mofolo South, Soweto</Typography>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <LocationOnIcon />
-          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Rustavaal:</Typography> 660 Ramaphosa Settlement, Rustervaal</Typography>
+          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Rustervaal:</Typography> 660 Ramaphosa Settlement, Rustervaal</Typography>
         </Box>
       </Box>
 

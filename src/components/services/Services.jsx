@@ -13,7 +13,7 @@ function Services() {
         {
             title:'SUNDAY SERVICE',
             desc:"Sunday Service is the heart of our church's weekly activities, a time when our community comes together to worship, learn, and grow in faith. We gather every Sunday to celebrate God's love through prayer, song, and the reading of Scripture. Our service is a blend of traditional and contemporary worship styles, designed to be accessible and meaningful for all attendees. The sermon, delivered by our pastor, provides insightful teachings on the Bible and practical applications for daily living. We also offer Sunday School for children and youth during the service. Whether you're a long-time believer or new to the faith, we invite you to join us in fellowship and worship at our Sunday Service.",
-            img:"https://www.christiantruthcenter.com/wp-content/uploads/2021/08/Sunday-Service.png"
+            img:"Service.jpeg"
         },
         {
             title:'WOMENS MINISTRY',
@@ -28,7 +28,7 @@ function Services() {
         {
             title:'WEDNESDAY PRAYER',
             desc:"Wednesday Prayer is a special time in our church where we come together mid-week to seek God's guidance and express our gratitude. This service is dedicated to collective prayer, providing a peaceful space for members to connect with God and each other. We believe in the power of prayer to bring comfort, healing, and transformation. During this service, we pray for personal needs, our church, our community, and global issues. The service also includes a short reflection on a Bible passage to inspire and encourage us in our faith journey. Whether you need prayer or want to pray for others, our Wednesday Prayer service is a place of support and spiritual renewal.",
-            img:"https://www.christiantruthcenter.com/wp-content/uploads/2021/08/Sunday-Service.png"
+            img:"https://www.middletownumc.org/wp-content/uploads/2021/01/prayer-service.jpg"
         }
     ];
 

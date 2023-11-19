@@ -20,7 +20,7 @@ function CardEvent({title, desc, img, focus, date}) {
     return (
         <Card sx={{ 
             width: {sx: focus ? "100%" : "80%", sm: focus ? "90%" : "80%"}, 
-            height: focus ? '34em' : '25%',
+            height: focus ? '37em' : '28%',
             transition: 'all 0.5s ease' // Add transition for smooth resizing
         }}>
             <CardMedia
@@ -30,7 +30,7 @@ function CardEvent({title, desc, img, focus, date}) {
                 image={img? img: "https://i.pinimg.com/1200x/d8/d2/68/d8d268ab051da48fb177a8aa08f90410.jpg"}
             />
 
-            <CardContent sx={{ mb:'0.5em', height: focus ? '40%' : '36%', overflowY: 'hidden' }}>
+            <CardContent sx={{ mb:'0.2em', height: focus ? '42%' : '36%', overflowY: 'hidden' }}>
                 <Typography gutterBottom variant="h5" component="div">
                     {title}
                 </Typography>
@@ -49,14 +49,14 @@ function CardEvent({title, desc, img, focus, date}) {
                         <Typography variant="span" color="text.secondary">
                             Date: {date}
                         </Typography>
-                        <hr style={{ marginBottom:'1em' }}/>
+                        <hr style={{ marginBottom:'0.5em' }}/>
                     </>
                     ) : null
                 }
             </CardContent>
 
             
-            <CardActions sx={{ height: '10%' }}>
+            <CardActions sx={{ height: '8%' }}>
                 <Button onClick={handleOpen} size="small">Learn More</Button>
                 <Modal
                     open={open}
