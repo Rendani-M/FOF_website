@@ -13,7 +13,7 @@ const theme = createTheme({
     },
 });
 
-function CardEvent({title, desc, img, focus, date}) {
+function CardEvent({title, desc, img, focus, date, expandImg}) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -63,6 +63,7 @@ function CardEvent({title, desc, img, focus, date}) {
                     onClose={handleClose}
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
+                    sx={{ overflowY:'auto' }}
                 >
                     <ThemeProvider theme={theme}>
                         <CssBaseline />
@@ -75,12 +76,12 @@ function CardEvent({title, desc, img, focus, date}) {
                                     bgcolor: 'background.paper',
                                     boxShadow: 24,
                                     p: 0,
-                                    maxHeight:'80vh', 
+                                    maxHeight:'70vh', 
                                     display: 'flex',
                                     justifyContent:'space-between' }}>
                             
                             <Box sx={{ display:'flex', flexDirection:{xs:'column-reverse', sm:'column-reverse', md:'row'}, height:'auto' }}>
-                                <Box sx={{ padding:'2em', width:{sm:'100%', md:'55%'}, overflow:'visible', height:{xs:'70%',sm:'70%',md:'100%'} }}>
+                                <Box sx={{ padding:'1em 2em', width:{sm:'100%', md:'55%'}, overflow:'visible', maxHeight:{xs: expandImg?'40%':'70%',sm:expandImg?'10%':'70%',md:'100%'} }}>
                                     <Typography id="modal-modal-title" variant="h6" component="h2">
                                         {title}
                                     </Typography>
@@ -90,8 +91,8 @@ function CardEvent({title, desc, img, focus, date}) {
                                         {desc}
                                     </Typography>
                                 </Box>
-                                <Box sx={{ height: '101%', width:{sm:'100%', md:'45%'} }}>
-                                    <img src={img? img: "https://i.pinimg.com/1200x/d8/d2/68/d8d268ab051da48fb177a8aa08f90410.jpg"} alt="" style={{ width: '100%', height: '100%', objectFit: 'fit' }} />
+                                <Box sx={{ height: 'auto', width:{sm:'100%', md:'45%'}, overflow:'hidden' }}>
+                                    <img src={img? img: "https://i.pinimg.com/1200x/d8/d2/68/d8d268ab051da48fb177a8aa08f90410.jpg"} alt="" style={{ width: '100%', height: '100%', objectFit:'contains' }} />
                                 </Box>
                             </Box>
                         </Box>
