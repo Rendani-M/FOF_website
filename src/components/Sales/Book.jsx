@@ -8,7 +8,7 @@ const bookCard = [
             This is a limited offer only for the 1st 50 orders. All pre-ordered copies will be signed by Apostle Makhavhu and available for collection on the day of the launch.
             DO NOT MISS OUT on this special offer. Order yours today.
             You can make an EFT payment using the account details on the facebook page`,
-        img:"https://scontent-jnb1-1.xx.fbcdn.net/v/t39.30808-6/401088340_715703763924834_2079001820588133996_n.jpg?stp=dst-jpg_p843x403&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGReIh6WDjdwM2fH8iT9DYvF3JlKb9c0JsXcmUpv1zQm3IeyiSgLMEpMPgfR7mrZ2SfHlv0Lil9g-gSDJue5A9m&_nc_ohc=dxVwz5g6qrcAX-_GV8i&_nc_ht=scontent-jnb1-1.xx&oh=00_AfDWZpazNg-L13Oo7DFKfQfCJhtLlD_aTGl7-bAovcrtEw&oe=6562A7B5",
+        img:"Apostle-book.jpg",
         date:"19/08/2023"
     }
 ];

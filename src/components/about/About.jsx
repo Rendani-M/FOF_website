@@ -6,18 +6,20 @@ function About() {
   const eventCard = [ 
       {
           title:'MISSION',
-          desc:"At Flames Of Fire, we are on a mission to bring God's love and light to the world. With open hearts, open minds, and open doors, we invite you to join us in this transformative journey of faith, hope, and love. Together, we can make a difference and fulfill our calling to be the hands and feet of Jesus Christ in our world today.",
-          img:"Mission_Image.png"
+          img:"Mission_Image.png",
+          desc:"At Flames Of Fire, we are on a mission to bring God's love and light to the world. With open hearts, open minds, and open doors, we invite you to join us in this transformative journey of faith, hope, and love. Together, we can make a difference and fulfill our calling to be the hands and feet of Jesus Christ in our world today."
       },
       {
           title:'VERSE OF THE YEAR',
+          img:"Verse_image.png",
           desc:'[Ephesians 2:8-9] “For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God— not by works, so that no one can boast.”',
-          img:"Verse_image.png"
+          
       },
       {
           title:'THEME OF THE YEAR',
+          img:"Theme_of_the_year.png",
           desc:"Welcome to 'The Year of Turnaround'—a divine journey of transformation and renewal within our church community. As we embrace this empowering theme, we embark on a collective pilgrimage toward positive change, spiritual breakthroughs, and a reawakening of purpose. Together, we'll navigate the year trusting that this year holds the promise of extraordinary shifts in our lives and in the church of Jesus. Join us in prayer, reflection, and action as we seek a profound turnaround in our hearts, our relationships, and our community. May this year be a testament to the miraculous power of faith and the boundless possibilities of a spiritual turnaround.",
-          img:"Theme_of_the_year.png"
+          
       },
       {
           title:'Title 4',
