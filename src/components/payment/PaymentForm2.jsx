@@ -46,24 +46,24 @@ const handleSubmit = async (e) => {
       if (response.data !== null) {
         const pfParamString = response.data; 
         console.log('Successful payment', pfParamString);
-        const result= await handleProcess(pfParamString);
-        console.log('result', result);
+        // const result= await handleProcess(pfParamString);
+        // console.log('result', result);
         setSuccess(true);
       }
     } catch (error) {
       console.log('error', error);
     }
   };
-  const handleProcess = async (pfParamString) => {
-    const result = await axios.post(`https://www.payfast.co.za/onsite/process`, qs.stringify(pfParamString), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-    .then((res) => {
-      return res.data || null;
-    });
-  };
+  // const handleProcess = async (pfParamString) => {
+  //   const result = await axios.post(`https://www.payfast.co.za/onsite/process`, qs.stringify(pfParamString), {
+  //     headers: {
+  //       'Content-Type': 'application/x-www-form-urlencoded'
+  //     }
+  //   })
+  //   .then((res) => {
+  //     return res.data || null;
+  //   });
+  // };
   
 
   useEffect(() => {
@@ -86,6 +86,7 @@ const handleSubmit = async (e) => {
           {warning && <Typography variant="body1" style={{ color: 'red', marginBottom: "20px" }}>
             Warning: The amount entered is less than the minimum amount.
           </Typography>}
+          <input type="hidden" name="" value={{ exchangeRate }}/>
           <TextField 
             id="cardNumber" 
             label="Card Number" 
