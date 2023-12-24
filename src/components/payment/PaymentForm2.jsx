@@ -11,53 +11,55 @@ const myData =
   "return_url": "https://flamesoffireministries.co.za/return",
   "cancel_url": "https://flamesoffireministries.co.za/cancel",
   "notify_url": "https://flamesoffireministries.co.za/notify",
-  "first_name": "Rendani",
-  "last_name": "Makhavhu",
+  "name_first": "Rendani",
+  "name_last": "Makhavhu",
   "email_address": "makhavhurendani@gmail.com",
   "m_payment_id": "1",
   "amount": 7.00,
-  // "payment_status": "COMPLETE",
-  "item_name": "offering"
+  "item_name": "#offering"
 };
 
-function PaymentForm2() {
+function PaymentForm2(props) {
   const [success, setSuccess] = useState(false);
   const [exchangeRate, setExchangeRate] = useState(0);
   const [minimumAmount, setMinimumAmount] = useState(0);
   const [amount, setAmount] = useState(0);
   const [warning, setWarning] = useState(false);
 
-//   const validateCardDetails = (cardNumberElement, cardExpiryElement) => {
-//     // Add your validation logic here
-//     // Return an object with a boolean `error` property
-//     return { error: false };
-//   };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (amount < minimumAmount) {
-      setWarning(true);
-      return;
-    }
+const handleSubmit = async (e) => {
+  e.preventDefault();
   
-    try {
-      const response = await axios.post('http://localhost:4050/payment', myData);
-      
-      if (response.data !== null) {
-        const pfParamString = response.data; 
-        console.log('Successful payment', pfParamString);
-        const result= await generatePaymentIdentifier(pfParamString);
-        console.log('result', result);
-        setSuccess(true);
+  if (amount < minimumAmount) {
+    setWarning(true);
+    return;
+  }
+
+  try {
+    const response = await axios.post('http://localhost:4050/payment', myData);
+    
+    if (response.data !== null) {
+      const pfParamString = response.data; 
+      console.log('Successful payment', pfParamString);
+      const result = await generatePaymentIdentifier(pfParamString);
+      console.log('result', result);
+
+      // Trigger the PayFast payment modal
+      if (window.payfast_do_onsite_payment) {
+        window.payfast_do_onsite_payment({"uuid": result});
+      } else {
+        console.error('PayFast function not found');
       }
-    } catch (error) {
-      console.log('error', error);
+
+      setSuccess(true);
+      props.handleClose();
     }
-  };
+  } catch (error) {
+    console.log('error', error);
+  }
+};
+
 
   const generatePaymentIdentifier = async (pfParamString) => {
-    console.log("first",pfParamString);
     const result = await axios.post(`https://www.payfast.co.za/onsite/process`, pfParamString)
         .then((res) => {
           return res.data.uuid || null;
@@ -65,7 +67,6 @@ function PaymentForm2() {
         .catch((error) => {
           console.error(error)
         });
-    console.log("res.data", result);
     return result;
   };
 

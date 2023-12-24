@@ -58,7 +58,7 @@ function ContributionCard({title, desc, img}) {
                             
                             <Box sx={style}>
                                 <Typography variant="h5" gutterBottom sx={{ marginTop:'1em' }}>{title}</Typography>
-                                <PaymentForm2 />
+                                <PaymentForm2 handleClose={handleClose} />
                             </Box>
                         </Modal>
                     </Box>
