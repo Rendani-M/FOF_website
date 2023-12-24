@@ -14,11 +14,11 @@ const navItems = [
     title:"Home",
     link:'/'
   }
-  // , 
-  // {
-  //   title:"Contribute",
-  //   link:'/contributions'
-  // }
+  , 
+  {
+    title:"Contribute",
+    link:'/contributions'
+  }
 ];
 const MotionBox = motion(Box);
 const MemoizedMotionBox = React.memo(MotionBox, (prevProps, nextProps) => {

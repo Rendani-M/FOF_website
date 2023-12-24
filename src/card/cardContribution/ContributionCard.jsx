@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Typography, Paper, Grid, CardMedia, Button, Modal, useTheme, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/system';
-import StripeContainer from '../../components/payment/StripeContainer';
+import PaymentForm2 from '../../components/payment/PaymentForm2';
+// import StripeContainer from '../../components/payment/StripeContainer';
 
 const StyledPaper = styled(Paper)(({ theme }) => ({ 
     padding: theme.spacing(2),
@@ -57,7 +58,7 @@ function ContributionCard({title, desc, img}) {
                             
                             <Box sx={style}>
                                 <Typography variant="h5" gutterBottom sx={{ marginTop:'1em' }}>{title}</Typography>
-                                <StripeContainer />
+                                <PaymentForm2 />
                             </Box>
                         </Modal>
                     </Box>

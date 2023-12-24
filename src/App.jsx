@@ -3,6 +3,9 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import React from 'react'
 import Home from './pages/home/Home'
 import Contributions from './pages/contributions/Contributions';
+import Return from './components/payment/Return';
+import Cancel from './components/payment/Cancel';
+import Notify2 from './components/payment/Notify2';
 
 const Layout = () => {
   return (
@@ -25,6 +28,18 @@ const router = createBrowserRouter([
       {
         path: "/contributions", // Add the route for products with subcategory
         element: <Contributions />,
+      },
+      {
+        path: "/return", // Add the route for products with subcategory
+        element: <Return />,
+      },
+      {
+        path: "/cancel", // Add the route for products with subcategory
+        element: <Cancel />,
+      },
+      {
+        path: "/notify", // Add the route for products with subcategory
+        element: <Notify2 />,
       },
     ],
   },
