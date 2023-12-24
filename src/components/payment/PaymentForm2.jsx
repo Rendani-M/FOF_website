@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button, Typography, Box, TextField } from '@mui/material';
-import qs from 'qs';
+// import qs from 'qs';
 
 // Define your data
 const myData = 
@@ -49,7 +49,7 @@ function PaymentForm2() {
         console.log('Successful payment', pfParamString);
         const result= await generatePaymentIdentifier(pfParamString);
         console.log('result', result);
-        // setSuccess(true);
+        setSuccess(true);
       }
     } catch (error) {
       console.log('error', error);
