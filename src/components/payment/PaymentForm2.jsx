@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button, Typography, Box, TextField } from '@mui/material';
+import qs from 'qs';
 
 // Define your data
 const myData = 
 {
   "merchant_id": "23522210",
   "merchant_key": "au717fohgkyuz",
-  "return_url": "10000100",
-  "cancel_url": "46f0cd694581a",
-  "notify_url": "46f0cd694581a",
+  "return_url": "https://flamesoffireministries.co.za/return",
+  "cancel_url": "https://flamesoffireministries.co.za/cancel",
+  "notify_url": "https://flamesoffireministries.co.za/notify",
   "first_name": "Rendani",
   "last_name": "Makhavhu",
   "email_address": "makhavhurendani@gmail.com",
-  "amount_gross": 7.00,
-  "pf_payment_id": "1",
-  "payment_status": "COMPLETE",
+  "m_payment_id": "1",
+  "amount": 7.00,
+  // "payment_status": "COMPLETE",
   "item_name": "offering"
 };
 
@@ -32,7 +33,7 @@ function PaymentForm2() {
 //     return { error: false };
 //   };
 
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (amount < minimumAmount) {
@@ -46,25 +47,27 @@ const handleSubmit = async (e) => {
       if (response.data !== null) {
         const pfParamString = response.data; 
         console.log('Successful payment', pfParamString);
-        // const result= await handleProcess(pfParamString);
-        // console.log('result', result);
-        setSuccess(true);
+        const result= await generatePaymentIdentifier(pfParamString);
+        console.log('result', result);
+        // setSuccess(true);
       }
     } catch (error) {
       console.log('error', error);
     }
   };
-  // const handleProcess = async (pfParamString) => {
-  //   const result = await axios.post(`https://www.payfast.co.za/onsite/process`, qs.stringify(pfParamString), {
-  //     headers: {
-  //       'Content-Type': 'application/x-www-form-urlencoded'
-  //     }
-  //   })
-  //   .then((res) => {
-  //     return res.data || null;
-  //   });
-  // };
-  
+
+  const generatePaymentIdentifier = async (pfParamString) => {
+    console.log("first",pfParamString);
+    const result = await axios.post(`https://www.payfast.co.za/onsite/process`, pfParamString)
+        .then((res) => {
+          return res.data.uuid || null;
+        })
+        .catch((error) => {
+          console.error(error)
+        });
+    console.log("res.data", result);
+    return result;
+  };
 
   useEffect(() => {
     axios.get(`https://v6.exchangerate-api.com/v6/9f050aa8d0a260fc321182c1/latest/GBP`)
