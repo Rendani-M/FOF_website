@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button, Typography, Box, TextField } from '@mui/material';
-// import qs from 'qs';
+import { ref, set, onValue } from "firebase/database";
+import { db } from '../../firebase';
 
 // Define your data
 const myData = 
@@ -26,38 +27,59 @@ function PaymentForm2(props) {
   const [amount, setAmount] = useState(0);
   const [warning, setWarning] = useState(false);
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  
-  if (amount < minimumAmount) {
-    setWarning(true);
-    return;
-  }
-
-  try {
-    const response = await axios.post('http://localhost:4050/payment', myData);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     
-    if (response.data !== null) {
-      const pfParamString = response.data; 
-      console.log('Successful payment', pfParamString);
-      const result = await generatePaymentIdentifier(pfParamString);
-      console.log('result', result);
-
-      // Trigger the PayFast payment modal
-      if (window.payfast_do_onsite_payment) {
-        window.payfast_do_onsite_payment({"uuid": result});
-      } else {
-        console.error('PayFast function not found');
-      }
-
-      setSuccess(true);
-      props.handleClose();
+    if (amount < minimumAmount) {
+      setWarning(true);
+      return;
     }
-  } catch (error) {
-    console.log('error', error);
-  }
-};
 
+    try {
+      const response = await axios.post('http://localhost:4050/payment', myData);
+      
+      if (response.data !== null) {
+        const pfParamString = response.data; 
+        console.log('Successful payment', pfParamString);
+        const result = await generatePaymentIdentifier(pfParamString);
+        console.log('result', result);
+
+        // Trigger the PayFast payment modal
+        if (window.payfast_do_onsite_payment) {
+        // if (result !== null) {
+          window.payfast_do_onsite_payment({"uuid": result});
+          // firebaseWrite(10, "Rendi", "mr@gmail.com", "https://upload.wikimedia.org/wikipedia/commons/5/5f/Alberto_conversi_profile_pic.jpg");
+          
+        } else {
+          console.error('PayFast function not found');
+        }
+
+        setSuccess(true);
+        props.handleClose();
+      }
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
+  function firebaseWrite(userId, name, email, imageUrl) {
+    const now = new Date();
+    now.setHours(now.getHours() + 2);
+    const date = now.toISOString().slice(0,10).replace(/-/g,"");
+    const time = now.toISOString().slice(11,19).replace(/:/g,"");
+
+    // Set data in Firebase
+    set(ref(db, `payment/${date}/${time}`), {
+      amount : 7.00
+    });
+
+    const usersRef = ref(db, 'payment/');
+    onValue(usersRef, (snapshot) => {
+      const data = snapshot.val();
+      // updateusers(postElement, data);
+      console.log("data", data);
+    });
+  }
 
   const generatePaymentIdentifier = async (pfParamString) => {
     const result = await axios.post(`https://www.payfast.co.za/onsite/process`, pfParamString)
@@ -79,6 +101,18 @@ const handleSubmit = async (e) => {
       })
       .catch(error => console.error('Error:', error));
   }, []);
+
+  useEffect(() => {
+    if (success) {
+      axios.post('http://localhost:4050/confirmation', myData)
+        .then(response => {
+          console.log('Confirmation response:', response.data);
+        })
+        .catch(error => {
+          console.error('Error during confirmation:', error);
+        });
+    }
+  }, [success]);
 
   return (
     <Box sx={{ padding: "0 1em", marginTop: "20px", marginBottom: "20px", width:'90%' }}>
