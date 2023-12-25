@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button, Typography, Box, TextField } from '@mui/material';
-import { ref, set, onValue } from "firebase/database";
-import { db } from '../../firebase';
+// import { ref, set, onValue } from "firebase/database";
+// import { db } from '../../firebase';
 
 // Define your data
 const myData = 
@@ -62,24 +62,24 @@ function PaymentForm2(props) {
     }
   };
 
-  function firebaseWrite(userId, name, email, imageUrl) {
-    const now = new Date();
-    now.setHours(now.getHours() + 2);
-    const date = now.toISOString().slice(0,10).replace(/-/g,"");
-    const time = now.toISOString().slice(11,19).replace(/:/g,"");
+  // function firebaseWrite(userId, name, email, imageUrl) {
+  //   const now = new Date();
+  //   now.setHours(now.getHours() + 2);
+  //   const date = now.toISOString().slice(0,10).replace(/-/g,"");
+  //   const time = now.toISOString().slice(11,19).replace(/:/g,"");
 
-    // Set data in Firebase
-    set(ref(db, `payment/${date}/${time}`), {
-      amount : 7.00
-    });
+  //   // Set data in Firebase
+  //   set(ref(db, `payment/${date}/${time}`), {
+  //     amount : 7.00
+  //   });
 
-    const usersRef = ref(db, 'payment/');
-    onValue(usersRef, (snapshot) => {
-      const data = snapshot.val();
-      // updateusers(postElement, data);
-      console.log("data", data);
-    });
-  }
+  //   const usersRef = ref(db, 'payment/');
+  //   onValue(usersRef, (snapshot) => {
+  //     const data = snapshot.val();
+  //     // updateusers(postElement, data);
+  //     console.log("data", data);
+  //   });
+  // }
 
   const generatePaymentIdentifier = async (pfParamString) => {
     const result = await axios.post(`https://www.payfast.co.za/onsite/process`, pfParamString)
