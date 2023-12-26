@@ -3,12 +3,13 @@ import axios from 'axios';
 import { Button, Typography, Box, TextField } from '@mui/material';
 // import { ref, set, onValue } from "firebase/database";
 // import { db } from '../../firebase';
-
+// "merchant_id": "23522210",
+//   "merchant_key": "au717fohgkyuz",
 // Define your data
 const myData = 
 {
-  "merchant_id": "23522210",
-  "merchant_key": "au717fohgkyuz",
+  "merchant_id": "10004002", 
+  "merchant_key": "q1cd2rdny4a53",
   "return_url": "https://flamesoffireministries.co.za/return",
   "cancel_url": "https://flamesoffireministries.co.za/cancel",
   "notify_url": "https://flamesoffireministries.co.za/notify",
