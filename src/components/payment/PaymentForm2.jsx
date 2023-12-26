@@ -8,8 +8,8 @@ import { Button, Typography, Box, TextField } from '@mui/material';
 // Define your data
 const myData = 
 {
-  "merchant_id": "10004002", 
-  "merchant_key": "q1cd2rdny4a53",
+  "merchant_id": "23522210",
+  "merchant_key": "au717fohgkyuz",
   "return_url": "https://flamesoffireministries.co.za/return",
   "cancel_url": "https://flamesoffireministries.co.za/cancel",
   "notify_url": "https://flamesoffireministries.co.za/notify",
@@ -17,7 +17,7 @@ const myData =
   "name_last": "Makhavhu",
   "email_address": "makhavhurendani@gmail.com",
   "m_payment_id": "1",
-  "amount": 7.00,
+  "amount": 4.00,
   "item_name": "#offering"
 };
 
