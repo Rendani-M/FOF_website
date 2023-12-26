@@ -19,7 +19,7 @@ const myData =
   "name_last": "Makhavhu",
   "email_address": "makhavhurendani@gmail.com",
   "m_payment_id": "1",
-  "amount": 4.00,
+  "amount": 7.00,
   "item_name": "#offering"
 };
 
