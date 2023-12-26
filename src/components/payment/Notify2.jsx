@@ -18,6 +18,7 @@ function Notify2() {
 
   useEffect(() => {
     // if (success) {
+      console.log("Notify2")
       axios.post('http://localhost:4050/confirmation', myData)
         .then(response => {
           console.log('Confirmation response:', response.data);
