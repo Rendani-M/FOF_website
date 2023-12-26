@@ -48,6 +48,13 @@ function PaymentForm2(props) {
         if (window.payfast_do_onsite_payment) {
         // if (result !== null) {
           window.payfast_do_onsite_payment({"uuid": result});
+          axios.post('http://localhost:4050/confirmation', myData)
+          .then(response => {
+            console.log('Confirmation response:', response.data);
+          })
+          .catch(error => {
+            console.error('Error during confirmation:', error);
+          });
           // firebaseWrite(10, "Rendi", "mr@gmail.com", "https://upload.wikimedia.org/wikipedia/commons/5/5f/Alberto_conversi_profile_pic.jpg");
           
         } else {
@@ -102,17 +109,17 @@ function PaymentForm2(props) {
       .catch(error => console.error('Error:', error));
   }, []);
 
-  useEffect(() => {
-    if (success) {
-      axios.post('http://localhost:4050/confirmation', myData)
-        .then(response => {
-          console.log('Confirmation response:', response.data);
-        })
-        .catch(error => {
-          console.error('Error during confirmation:', error);
-        });
-    }
-  }, [success]);
+  // useEffect(() => {
+  //   if (success) {
+  //     axios.post('http://localhost:4050/confirmation', myData)
+  //       .then(response => {
+  //         console.log('Confirmation response:', response.data);
+  //       })
+  //       .catch(error => {
+  //         console.error('Error during confirmation:', error);
+  //       });
+  //   }
+  // }, [success]);
 
   return (
     <Box sx={{ padding: "0 1em", marginTop: "20px", marginBottom: "20px", width:'90%' }}>
