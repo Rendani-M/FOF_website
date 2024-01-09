@@ -48,7 +48,8 @@ function Topbar({ sections }) {
     }, [sections, open]);
 
     useEffect(() => {
-      isIntroOrAbout === 'intro'? setBackGColor('black'):setBackGColor('none');
+      // isIntroOrAbout === 'intro'? setBackGColor('black'):setBackGColor('none');
+      setBackGColor('black');
       
     }, [isIntroOrAbout]);
 
