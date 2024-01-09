@@ -30,31 +30,25 @@ const MemoizedMotionBox = React.memo(MotionBox, (prevProps, nextProps) => {
 function Topbar({ sections, contributions }) {
   const { open } = useContext(OpenContext);
   const navigate = useNavigate();
-  const [backGColor, setBackGColor] = useState('none');
-  const [colorFont, setColorFont] = useState('black');
-  const [isIntroOrAbout, setIsIntroOrAbout] = useState("");
+  // const [backGColor, setBackGColor] = useState('black');
+  // const [colorFont, setColorFont] = useState('white');
+  // const [isIntroOrAbout, setIsIntroOrAbout] = useState("");
   const [state, setState] = useState({
     left: false
   });
 
     useEffect(() => {
       console.log("Current section:", sections);
-      if (sections === 'about' || sections === 'intro') {
-        setIsIntroOrAbout(sections);
-      } 
-
-      if(open){
-        setBackGColor('none');
-        setColorFont('black');
-      }
-
+      // if (sections === 'about' || sections === 'intro') {
+      //   setIsIntroOrAbout(sections);
+      // } 
     }, [sections, open]);
 
-    useEffect(() => {
-      setBackGColor('black');
-      setColorFont('white');
+    // useEffect(() => {
+    //   setBackGColor('black');
+    //   setColorFont('white');
       
-    }, [isIntroOrAbout]);
+    // }, [isIntroOrAbout]);
 
     const toggleDrawer = (anchor, open) => (event) => {
       if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -109,8 +103,8 @@ function Topbar({ sections, contributions }) {
     
     return (
       <Box sx={{ display: 'flex' }}>
-        <AppBar component="nav" position={contributions? "sticky": "fixed"} sx={{ background:'none' }}>
-          <MemoizedMotionBox sx={{ position: 'absolute', width: '100%', height: '100%', background: backGColor, color: colorFont }} initial={{ opacity: 0 }} animate={{ opacity: 1, background: backGColor, color: colorFont }} exit={{ opacity: 1 }} transition={{ duration: 1 }} />
+        <AppBar component="nav" position={contributions? "sticky": "fixed"} sx={{ background:'black' }}>
+          <MemoizedMotionBox sx={{ position: 'absolute', width: '100%', height: '100%', background: 'black', color: 'white' }} initial={{ opacity: 0 }} animate={{ opacity: 1, background: 'black', color: 'white' }} exit={{ opacity: 1 }} transition={{ duration: 1 }} />
             <Toolbar>
               <Box sx={{ display:{xs:'block', sm:'none'} }}>
                 <Drawer
@@ -132,14 +126,14 @@ function Topbar({ sections, contributions }) {
               <Typography
                 variant="h6"
                 component="div"
-                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md:'block' }, color: colorFont  }}
+                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md:'block' }, color: 'white'  }}
               >
                 FLAMES OF FIRE MINISTRIES
               </Typography>
               {/* when contribution works make justifyContent:'space-between'*/}
               <Box sx={{ display: 'flex', justifyContent:'end', width:{xs:'100%', sm:'100%', md:'17.5%'} }}>
                 {navItems.map((item) => (
-                  <Button key={item.title} sx={{ color: colorFont }} onClick={()=>navigate(item.link)}>
+                  <Button key={item.title} sx={{ color: 'white' }} onClick={()=>navigate(item.link)}>
                     {item.title}
                   </Button>
                 ))}
