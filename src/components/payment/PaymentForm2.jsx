@@ -39,7 +39,7 @@ function PaymentForm2(props) {
     }
 
     try {
-      const response = await axios.post('http://localhost:4050/payment', myData);
+      const response = await axios.post('https://payment-api-obbu.onrender.com/payment', myData);
       
       if (response.data !== null) {
         const pfParamString = response.data; 
@@ -51,7 +51,7 @@ function PaymentForm2(props) {
         if (window.payfast_do_onsite_payment) {
         // if (result !== null) {
           window.payfast_do_onsite_payment({"uuid": result});
-          axios.post('http://localhost:4050/confirmation', myData)
+          axios.post('https://payment-api-obbu.onrender.com/confirmation', myData)
           .then(response => {
             console.log('Confirmation response:', response.data);
           })

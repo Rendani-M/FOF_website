@@ -19,7 +19,7 @@ function Notify2() {
   useEffect(() => {
     // if (success) {
       console.log("Notify2")
-      axios.post('http://localhost:4050/confirmation', myData)
+      axios.post('https://payment-api-obbu.onrender.com/confirmation', myData)
         .then(response => {
           console.log('Confirmation response:', response.data);
         })
