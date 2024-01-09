@@ -15,11 +15,11 @@ const navItems = [
     title:"Home",
     link:'/'
   }
-  // , 
-  // {
-  //   title:"Contribute",
-  //   link:'/contributions'
-  // }
+  , 
+  {
+    title:"Contribute",
+    link:'/contributions'
+  }
 ];
 const MotionBox = motion(Box);
 const MemoizedMotionBox = React.memo(MotionBox, (prevProps, nextProps) => {
@@ -27,11 +27,11 @@ const MemoizedMotionBox = React.memo(MotionBox, (prevProps, nextProps) => {
     return prevProps.sx.background === nextProps.sx.background;
   });
 
-function Topbar({ sections }) {
+function Topbar({ sections, contributions }) {
   const { open } = useContext(OpenContext);
-  console.log("Open:", open);
   const navigate = useNavigate();
   const [backGColor, setBackGColor] = useState('none');
+  const [colorFont, setColorFont] = useState('black');
   const [isIntroOrAbout, setIsIntroOrAbout] = useState("");
   const [state, setState] = useState({
     left: false
@@ -43,13 +43,16 @@ function Topbar({ sections }) {
         setIsIntroOrAbout(sections);
       } 
 
-      open?setBackGColor('none'):setBackGColor('black');
+      if(open){
+        setBackGColor('none');
+        setColorFont('black');
+      }
 
     }, [sections, open]);
 
     useEffect(() => {
-      // isIntroOrAbout === 'intro'? setBackGColor('black'):setBackGColor('none');
       setBackGColor('black');
+      setColorFont('white');
       
     }, [isIntroOrAbout]);
 
@@ -106,8 +109,8 @@ function Topbar({ sections }) {
     
     return (
       <Box sx={{ display: 'flex' }}>
-        <AppBar component="nav" sx={{ background:'none' }}>
-          <MemoizedMotionBox sx={{ position: 'absolute', width: '100%', height: '100%', background: backGColor }} initial={{ opacity: 0 }} animate={{ opacity: 1, background: backGColor }} exit={{ opacity: 1 }} transition={{ duration: 1 }} />
+        <AppBar component="nav" position={contributions? "sticky": "fixed"} sx={{ background:'none' }}>
+          <MemoizedMotionBox sx={{ position: 'absolute', width: '100%', height: '100%', background: backGColor, color: colorFont }} initial={{ opacity: 0 }} animate={{ opacity: 1, background: backGColor, color: colorFont }} exit={{ opacity: 1 }} transition={{ duration: 1 }} />
             <Toolbar>
               <Box sx={{ display:{xs:'block', sm:'none'} }}>
                 <Drawer
@@ -129,14 +132,14 @@ function Topbar({ sections }) {
               <Typography
                 variant="h6"
                 component="div"
-                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md:'block' } }}
+                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md:'block' }, color: colorFont  }}
               >
                 FLAMES OF FIRE MINISTRIES
               </Typography>
               {/* when contribution works make justifyContent:'space-between'*/}
               <Box sx={{ display: 'flex', justifyContent:'end', width:{xs:'100%', sm:'100%', md:'17.5%'} }}>
                 {navItems.map((item) => (
-                  <Button key={item.title} sx={{ color: '#fff' }} onClick={()=>navigate(item.link)}>
+                  <Button key={item.title} sx={{ color: colorFont }} onClick={()=>navigate(item.link)}>
                     {item.title}
                   </Button>
                 ))}

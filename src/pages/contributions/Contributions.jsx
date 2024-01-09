@@ -38,8 +38,8 @@ function Contributions() {
 
     return (
         <OpenContext.Provider value={{ open, setOpen }}>
-            <Box sx={{ width:'100%', height:'auto', marginTop:'3em', backgroundColor: '#ecececc0'}}>
-                <Topbar/>
+            <Box sx={{ width:'100%', height:'auto', backgroundColor: '#ecececc0'}}>
+                <Topbar contributions={true}/>
                 <StyledBox>
                     <ContributionCard title={Building_Project_Title} desc={Building_Project_Desc} img={Building_Project_Image}/>
                     <ContributionCard title={Offering_Project_Title} desc={Offering_Project_Desc} img={Offering_Project_Image}/>

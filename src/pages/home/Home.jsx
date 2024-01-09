@@ -58,7 +58,7 @@ function Home() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box ref={boxRef} sx={{ width:'100%', height:'100%'}}>
-        <div ><Topbar sections={currentSection}/></div>
+        <div ><Topbar sections={currentSection} contributions={false}/></div>
         <div id="intro"><Intro/></div>
         <div id="about"><About/></div>
         <div id="services"><Services/></div>
