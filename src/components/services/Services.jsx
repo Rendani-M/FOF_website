@@ -48,7 +48,7 @@ function Services() {
                  flexDirection:'column',
                  backgroundColor: '#ecececc0',
                  color: '#000',
-                 paddingBottom:'13em'
+                 paddingBottom:'1em'
             }}>
           <Typography variant='h3' sx={{ mb:'1em', color:'black', display:'flex', justifyContent:'center' }}>
               Our Serivces

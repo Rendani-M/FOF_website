@@ -129,26 +129,13 @@ function PaymentForm2(props) {
       {!success ? (
         <form onSubmit={handleSubmit}>
           <Typography variant="h6" gutterBottom style={{ marginBottom: "20px" }}>
-            Enter your card details:
+            Enter details:
           </Typography>
           {warning && <Typography variant="body1" style={{ color: 'red', marginBottom: "20px" }}>
             Warning: The amount entered is less than the minimum amount.
           </Typography>}
           <input type="hidden" name="" value={{ exchangeRate }}/>
-          <TextField 
-            id="cardNumber" 
-            label="Card Number" 
-            variant="outlined" 
-            fullWidth 
-            style={{ marginBottom: "20px" }} 
-          />
-          <TextField 
-            id="cardExpiry" 
-            label="Card Expiry" 
-            variant="outlined" 
-            fullWidth 
-            style={{ marginBottom: "20px" }} 
-          />
+          
           <TextField 
             id="amount" 
             label="Amount" 

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box } from '@mui/material';
 import { styled } from '@mui/system';
 import Topbar from '../../components/topbar/Topbar';
 import ContributionCard from '../../card/cardContribution/ContributionCard';
+import { OpenContext } from '../../Context/OpenContext';
 
 const StyledBox = styled(Box)(({ theme }) => ({
   flexGrow: 1,
@@ -10,6 +11,9 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 function Contributions() {
+    const [open, setOpen] = useState(false);
+    // const handleOpen = () => setOpen(true);
+    // const handleClose = () => setOpen(false);
 
     const Offering_Project_Title="Offering";
     const Offering_Project_Image="https://assets-global.website-files.com/5f6b9a421d5a61e1d0cd9e3d/5f8f636b9205d7182ebf0885_5af5c0d30c20bd4b5e1f43af_offeringplate.jpeg";
@@ -33,13 +37,15 @@ function Contributions() {
         comes together with a shared vision. As congregants step into their new place of worship for the first time, they can take pride in knowing that they've contributed to creating this sacred space where their community will gather for generations to come.`
 
     return (
-        <Box sx={{ width:'100%', height:'auto', marginTop:'3em', backgroundColor: '#ecececc0'}}>
-            <Topbar sections="about" />
-            <StyledBox>
-                <ContributionCard title={Building_Project_Title} desc={Building_Project_Desc} img={Building_Project_Image}/>
-                <ContributionCard title={Offering_Project_Title} desc={Offering_Project_Desc} img={Offering_Project_Image}/>
-            </StyledBox>
-        </Box>
+        <OpenContext.Provider value={{ open, setOpen }}>
+            <Box sx={{ width:'100%', height:'auto', marginTop:'3em', backgroundColor: '#ecececc0'}}>
+                <Topbar/>
+                <StyledBox>
+                    <ContributionCard title={Building_Project_Title} desc={Building_Project_Desc} img={Building_Project_Image}/>
+                    <ContributionCard title={Offering_Project_Title} desc={Offering_Project_Desc} img={Offering_Project_Image}/>
+                </StyledBox>
+            </Box>
+        </OpenContext.Provider>
     );
 }
 

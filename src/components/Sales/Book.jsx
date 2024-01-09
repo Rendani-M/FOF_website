@@ -15,10 +15,10 @@ const bookCard = [
 function Book() {
   return (
     <Box sx={{  width:'100%', 
-                height:'100%', 
+                height:'50%', 
                 display:'flex', 
                 alignItems:'center', 
-                padding:{xs: '0 1em', sm:'5em 8em', md:'20em 25em', lg:'20em 25em'},
+                padding:{xs: '0 1em', sm:'5em 8em', md:'20em 20em', lg:'20em 20em'},
                 paddingBottom:'13em',
                 flexDirection:'column', 
                 justifyContent:'center', 

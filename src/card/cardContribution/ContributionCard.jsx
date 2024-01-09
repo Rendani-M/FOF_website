@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Box, Typography, Paper, Grid, CardMedia, Button, Modal, useTheme, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/system';
 import PaymentForm2 from '../../components/payment/PaymentForm2';
-// import StripeContainer from '../../components/payment/StripeContainer';
+import { OpenContext } from '../../Context/OpenContext';
 
 const StyledPaper = styled(Paper)(({ theme }) => ({ 
     padding: theme.spacing(2),
@@ -15,7 +15,8 @@ const StyledCardMedia = styled(CardMedia)({
 });
 
 function ContributionCard({title, desc, img}) {
-    const [open, setOpen] = useState(false);
+    // const [open, setOpen] = useState(false);
+    const { open, setOpen } = useContext(OpenContext);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const theme = useTheme();
@@ -28,7 +29,7 @@ function ContributionCard({title, desc, img}) {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: isXs ? '98vw' : isSm ? '85vw' : '70vw',
-        minHeight: isXs ? '90%' : isSm ? '85%' : '70%', 
+        minHeight: isXs ? '60%' : isSm ? '50%' : '40%', 
         display: 'flex',
         flexDirection:'column',
         alignItems:'center',

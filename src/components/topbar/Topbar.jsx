@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import { motion } from 'framer-motion';
@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import { Home, Logout, People, PersonOutline } from '@mui/icons-material';
 import { Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { OpenContext } from '../../Context/OpenContext';
 
 const navItems = [
   {
@@ -27,6 +28,8 @@ const MemoizedMotionBox = React.memo(MotionBox, (prevProps, nextProps) => {
   });
 
 function Topbar({ sections }) {
+  const { open } = useContext(OpenContext);
+  console.log("Open:", open);
   const navigate = useNavigate();
   const [backGColor, setBackGColor] = useState('none');
   const [isIntroOrAbout, setIsIntroOrAbout] = useState("");
@@ -39,10 +42,13 @@ function Topbar({ sections }) {
       if (sections === 'about' || sections === 'intro') {
         setIsIntroOrAbout(sections);
       } 
-    }, [sections]);
+
+      open?setBackGColor('none'):setBackGColor('black');
+
+    }, [sections, open]);
 
     useEffect(() => {
-      isIntroOrAbout === 'intro'? setBackGColor('black'):setBackGColor('black');
+      isIntroOrAbout === 'intro'? setBackGColor('black'):setBackGColor('none');
       
     }, [isIntroOrAbout]);
 
