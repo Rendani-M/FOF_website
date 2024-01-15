@@ -17,6 +17,14 @@ function CardEvent({title, desc, img, focus, date, expandImg}) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    
+    function dateConverter(dbDate){
+        let date = new Date(dbDate);
+        let options = { year: 'numeric', month: 'long', day: 'numeric' };
+        let formattedDate = date.toLocaleDateString("en-US", options);
+        return formattedDate;
+    }
+
     return (
         <Card sx={{ 
             width: {sx: focus ? "100%" : "80%", sm: focus ? "90%" : "80%"}, 
@@ -27,7 +35,7 @@ function CardEvent({title, desc, img, focus, date, expandImg}) {
                 component="img"
                 alt="green iguana"
                 sx={{ height: { xs: '50%', sm: '50%' } }} // Adjust based on your needs
-                image={img? img: "https://i.pinimg.com/1200x/d8/d2/68/d8d268ab051da48fb177a8aa08f90410.jpg"}
+                image={img? img: "coming_soon.jpg"}
             />
 
             <CardContent sx={{ mb:'0.2em', height: focus ? '42%' : '36%', overflowY: 'hidden' }}>
@@ -47,7 +55,7 @@ function CardEvent({title, desc, img, focus, date, expandImg}) {
                     <>
                         <hr style={{ marginTop:'1em' }}/>
                         <Typography variant="span" color="text.secondary">
-                            Date: {date}
+                            Date: {dateConverter(date)}
                         </Typography>
                         <hr style={{ marginBottom:'0.5em' }}/>
                     </>
