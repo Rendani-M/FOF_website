@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button, Typography, Box, TextField } from '@mui/material';
-// import { ref as databaseRef, set } from "firebase/database";
-// import { db } from '../../firebase';
-// import { OpenContext } from '../../Context/OpenContext';
+import { ref as databaseRef, set } from "firebase/database";
+import { db } from '../../firebase';
+import { OpenContext } from '../../Context/OpenContext';
 
 const myData = 
 {
-  "merchant_id": "23522210", 
-  "merchant_key": "au717fohgkyuz",
-  "return_url": "https://flamesoffireministries.co.za/return",
-  "cancel_url": "https://flamesoffireministries.co.za/cancel",
-  "notify_url": "https://flamesoffireministries.co.za/notify",
-  "name_first": "Rendani",
-  "name_last": "Makhavhu",
-  "email_address": "makhavhurendani@gmail.com",
-  "m_payment_id": "1",
+  "merchant_id": process.env.REACT_APP_MERCHANT_ID, 
+  "merchant_key": process.env.REACT_APP_MERCHANT_KEY,
+  "return_url": process.env.REACT_APP_RETURN,
+  "cancel_url": process.env.REACT_APP_CANCEL,
+  "notify_url": process.env.REACT_APP_NOTIFY,
+  "name_first": "WEBSITE",
+  "name_last": "FOF",
+  "email_address": process.env.REACT_APP_EMAIL,
+  "m_payment_id": process.env.REACT_APP_PAY_ID,
   "amount": 7.00,
   "item_name": "#offering"
 };
@@ -26,21 +26,23 @@ function PaymentForm2(props) {
   const [minimumAmount, setMinimumAmount] = useState(0);
   const [amount, setAmount] = useState(0);
   const [warning, setWarning] = useState(false);
+  const { desc } = useContext(OpenContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (amount < minimumAmount) {
       setWarning(true);
       return;
     }
 
     try {
+      myData.amount= amount;
+      myData.item_name= desc;
       const response = await axios.post('https://payment-api-obbu.onrender.com/payment', myData);
       
       if (response.data !== null) {
         const pfParamString = response.data; 
-        console.log('myData', myData);
         console.log('Successful payment', pfParamString);
         const result = await generatePaymentIdentifier(pfParamString);
         console.log('result', result);
@@ -57,12 +59,12 @@ function PaymentForm2(props) {
             console.error('Error during confirmation:', error);
           });
 
-          // const inputData = {
-          //   amount: amount,
-          //   desc: desc,
-          //   key: '', // This will be set in firebaseWrite
-          // };
-          // firebaseWrite(inputData);
+          const inputData = {
+            amount: amount,
+            desc: desc,
+            key: '', // This will be set in firebaseWrite
+          };
+          firebaseWrite(inputData);
           
         } else {
           console.error('PayFast function not found');
@@ -76,29 +78,31 @@ function PaymentForm2(props) {
     }
   };
 
-  // function firebaseWrite(userId, name, email, imageUrl) {
-  //   const now = new Date();
-  //   now.setHours(now.getHours() + 2);
-  //   const date = now.toISOString().slice(0,10).replace(/-/g,"");
-  //   const time = now.toISOString().slice(11,19).replace(/:/g,"");
-
-  //   // Set data in Firebase
-  //   set(ref(db, `payment/${date}/${time}`), {
-  //     amount : 7.00
-  //   });
-
-  //   const usersRef = ref(db, 'payment/');
-  //   onValue(usersRef, (snapshot) => {
-  //     const data = snapshot.val();
-  //     // updateusers(postElement, data);
-  //     console.log("data", data);
-  //   });
-  // }
+  function firebaseWrite(inputData) {
+    return new Promise((resolve, reject) => {
+      const now = new Date();
+      now.setHours(now.getHours() + 2);
+      const date = now.toISOString().slice(0,10).replace(/-/g,"");
+      const time = now.toISOString().slice(11,19).replace(/:/g,"");
+      const key= date+time;
+      inputData.key = key;
+      inputData.date = date;
+      inputData.time = time;
+  
+      // Set data in Firebase
+      set(databaseRef(db, `admin/Payment/history/${date}/${time}`), inputData)
+        .then(() => {
+          resolve();
+        })
+        .catch((error) => {
+          console.error("Error during firebaseWrite:", error);
+          reject(error);
+        });
+    });
+  }
 
   const generatePaymentIdentifier = async (pfParamString) => {
-    const params = new URLSearchParams(pfParamString);
-    const pfParamObject = Object.fromEntries(params);
-    const result = await axios.post('https://www.payfast.co.za/onsite/process', pfParamObject)
+    const result = await axios.post(`https://www.payfast.co.za/onsite/process`, pfParamString)
         .then((res) => {
           return res.data.uuid || null;
         })
@@ -117,18 +121,6 @@ function PaymentForm2(props) {
       })
       .catch(error => console.error('Error:', error));
   }, []);
-
-  // useEffect(() => {
-  //   if (success) {
-  //     axios.post('http://localhost:4050/confirmation', myData)
-  //       .then(response => {
-  //         console.log('Confirmation response:', response.data);
-  //       })
-  //       .catch(error => {
-  //         console.error('Error during confirmation:', error);
-  //       });
-  //   }
-  // }, [success]);
 
   return (
     <Box sx={{ padding: "0 1em", marginTop: "20px", marginBottom: "20px", width:'90%' }}>
