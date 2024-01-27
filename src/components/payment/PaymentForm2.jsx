@@ -4,6 +4,7 @@ import { Button, Typography, Box, TextField } from '@mui/material';
 import { ref as databaseRef, set } from "firebase/database";
 import { db } from '../../firebase';
 import { OpenContext } from '../../Context/OpenContext';
+const queryString = require('query-string');
 
 const myData = 
 {
@@ -43,28 +44,29 @@ function PaymentForm2(props) {
       
       if (response.data !== null) {
         const pfParamString = response.data; 
+        console.log('myData', myData);
         console.log('Successful payment', pfParamString);
         const result = await generatePaymentIdentifier(pfParamString);
         console.log('result', result);
 
         // Trigger the PayFast payment modal
-        if (window.payfast_do_onsite_payment) {
-        // if (result !== null) {
-          window.payfast_do_onsite_payment({"uuid": result});
-          axios.post('https://payment-api-obbu.onrender.com/confirmation', myData)
-          .then(response => {
-            console.log('Confirmation response:', response.data);
-          })
-          .catch(error => {
-            console.error('Error during confirmation:', error);
-          });
-
+        // if (window.payfast_do_onsite_payment) {
+        if (result !== null) {
+          // window.payfast_do_onsite_payment({"uuid": result});
+          // axios.post('https://payment-api-obbu.onrender.com/confirmation', myData)
+          // .then(response => {
+          //   console.log('Confirmation response:', response.data);
+          // })
+          // .catch(error => {
+          //   console.error('Error during confirmation:', error);
+          // });
+          console.log("hello");
           const inputData = {
             amount: amount,
             desc: desc,
             key: '', // This will be set in firebaseWrite
           };
-          firebaseWrite(inputData);
+          // firebaseWrite(inputData);
           
         } else {
           console.error('PayFast function not found');
@@ -102,7 +104,9 @@ function PaymentForm2(props) {
   }
 
   const generatePaymentIdentifier = async (pfParamString) => {
-    const result = await axios.post(`https://www.payfast.co.za/onsite/process`, pfParamString)
+    const params = new URLSearchParams(pfParamString);
+    const pfParamObject = Object.fromEntries(params);
+    const result = await axios.post('https://www.payfast.co.za/onsite/process', pfParamObject)
         .then((res) => {
           return res.data.uuid || null;
         })

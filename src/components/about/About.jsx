@@ -40,9 +40,9 @@ function About() {
         <Box sx={{ width:{sx:'100%', sm:'95%'}, height:'100%', 
             display:'flex', alignItems:'center', padding:{xs:'1em', sm:'2em', md:'0'}, 
             flexDirection:{xs:'column', sm:'column' ,md:'row'}, justifyContent:'space-around', gap:'1em'}}>
-            <CardEvent title={eventCard[0]?.title} desc={eventCard[0]?.desc} img={eventCard[0]?.img} focus={true}/>
-            <CardEvent title={eventCard[1]?.title} desc={eventCard[1]?.desc} img={eventCard[1]?.img} focus={true}/>
-            <CardEvent title={eventCard[2]?.title} desc={eventCard[2]?.desc} img={eventCard[2]?.img} focus={true}/>
+            <CardEvent title={eventCard[0]?.title} desc={eventCard[0]?.desc} img={eventCard[0]?.img} focus={true} scripture={false}/>
+            <CardEvent title={eventCard[1]?.title} desc={eventCard[1]?.desc} img={eventCard[1]?.img} focus={true} scripture={false}/>
+            <CardEvent title={eventCard[2]?.title} desc={eventCard[2]?.desc} img={eventCard[2]?.img} focus={true} scripture={false}/>
                 
         </Box>
     </Box>

@@ -13,7 +13,7 @@ const theme = createTheme({
     },
 });
 
-function CardEvent({title, desc, img, focus, date, expandImg}) {
+function CardEvent({title, desc, img, focus, date, expandImg, scripture, scriptVerse}) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -31,31 +31,34 @@ function CardEvent({title, desc, img, focus, date, expandImg}) {
             height: focus ? '37em' : '28%',
             transition: 'all 0.5s ease' // Add transition for smooth resizing
         }}>
-            <CardMedia
+            {!scripture && <CardMedia
                 component="img"
                 alt="green iguana"
                 sx={{ height: { xs: '50%', sm: '50%' } }} // Adjust based on your needs
                 image={img? img: "coming_soon.jpg"}
-            />
+            />}
 
             <CardContent sx={{ mb:'0.2em', height: focus ? '42%' : '36%', overflowY: 'hidden' }}>
                 <Typography gutterBottom variant="h5" component="div">
                     {title}
                 </Typography>
+                {scripture && <Typography gutterBottom variant="h6" component="span" sx={{ mb:'2em' }}>
+                    {scriptVerse}
+                </Typography>}
                 <Typography variant="body2" color="text.secondary" sx={{
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     display: '-webkit-box',
-                    WebkitLineClamp: focus ? 5 : 1, // Adjust based on your needs
+                    WebkitLineClamp: (focus || scripture) ? 5 : 1, // Adjust based on your needs
                     WebkitBoxOrient: 'vertical'
                 }}>
-                    {focus? desc: ""}
+                    {(focus || scripture)? desc: ""}
                 </Typography>
                 {date ? (
                     <>
                         <hr style={{ marginTop:'1em' }}/>
                         <Typography variant="span" color="text.secondary">
-                            Date: {dateConverter(date)}
+                            Date: {scripture?date:dateConverter(date)}
                         </Typography>
                         <hr style={{ marginBottom:'0.5em' }}/>
                     </>
@@ -100,7 +103,7 @@ function CardEvent({title, desc, img, focus, date, expandImg}) {
                                     </Typography>
                                 </Box>
                                 <Box sx={{ height: 'auto', width:{sm:'100%', md:'45%'}, overflow:'hidden' }}>
-                                    <img src={img? img: "https://i.pinimg.com/1200x/d8/d2/68/d8d268ab051da48fb177a8aa08f90410.jpg"} alt="" style={{ width: '100%', height: '100%', objectFit:'contains' }} />
+                                    <img src={img? img: "coming_soon.jpg"} alt="" style={{ width: '100%', height: '100%', objectFit:'contains' }} />
                                 </Box>
                             </Box>
                         </Box>

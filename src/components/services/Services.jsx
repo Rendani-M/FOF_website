@@ -54,7 +54,7 @@ function Services() {
                         <Box sx={{ width: "30%", display:{xs:'none', sm:'block'}  }}>
                             <motion.div key={page-2} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                                         style={{ display: 'flex', justifyContent: 'right', alignItems: 'center' }}>
-                                <CardEvent title={eventCard[page-2]?.title} desc={eventCard[page-2]?.desc} img={eventCard[page-2]?.img} focus={false} date={eventCard[page-2]?.date} expandImg={false}/>
+                                <CardEvent title={eventCard[page-2]?.title} desc={eventCard[page-2]?.desc} img={eventCard[page-2]?.img} focus={false} date={eventCard[page-2]?.date} expandImg={false} scripture={false}/>
                             </motion.div>
                         </Box>
                     }
@@ -62,7 +62,7 @@ function Services() {
                         <Box sx={{ width: {xs:'100%', sm:'40%'}}}>
                             <motion.div key={page-1} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                                         style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <CardEvent title={eventCard[page-1]?.title} desc={eventCard[page-1]?.desc} img={eventCard[page-1]?.img} focus={true} date={eventCard[page-1]?.date} expandImg={false}/>
+                                <CardEvent title={eventCard[page-1]?.title} desc={eventCard[page-1]?.desc} img={eventCard[page-1]?.img} focus={true} date={eventCard[page-1]?.date} expandImg={false} scripture={false}/>
                             </motion.div>
                         </Box>
                     }
@@ -70,7 +70,7 @@ function Services() {
                         <Box sx={{ width: "30%", display:{xs:'none', sm:'block'}  }}>
                             <motion.div key={page} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                                         style={{ display: 'flex', justifyContent: 'left', alignItems: 'center' }}>
-                                <CardEvent title={eventCard[page]?.title} desc={eventCard[page]?.desc} img={eventCard[page]?.img} focus={false} date={eventCard[page]?.date} expandImg={false}/>
+                                <CardEvent title={eventCard[page]?.title} desc={eventCard[page]?.desc} img={eventCard[page]?.img} focus={false} date={eventCard[page]?.date} expandImg={false} scripture={false}/>
                             </motion.div>
                         </Box>
                     }

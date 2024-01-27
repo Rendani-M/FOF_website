@@ -26,7 +26,7 @@ function Book() {
         <Typography variant='h3' sx={{ mb:'1em', color:'black', display:'flex', justifyContent:'center' }}>
             Book
         </Typography>
-        <CardEvent title={bookCard[0].title} desc={bookCard[0].desc} img={bookCard[0].img} focus={false}/>
+        <CardEvent title={bookCard[0].title} desc={bookCard[0].desc} img={bookCard[0].img} focus={false} scripture={false}/>
     </Box>
   )
 }

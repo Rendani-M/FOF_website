@@ -5,7 +5,8 @@ import { AnimatePresence, motion } from 'framer-motion'; // Import these
 import { ref as databaseRef, onValue } from "firebase/database";
 import { db } from '../../firebase';
 
-function Event() {
+
+export default function Readings() {
     const [page, setPage] = useState(2);
     const [eventCard, setEventCard] = useState([]);
     const handleChange = (event, value) => {
@@ -17,7 +18,7 @@ function Event() {
     }, []);
 
     function firebaseGetAll() {
-        const usersRef = databaseRef(db, 'admin/Events');
+        const usersRef = databaseRef(db, 'admin/Scripture');
         onValue(usersRef, (snapshot) => {
             const data = snapshot.val();
             const dataArray = [];
@@ -34,7 +35,7 @@ function Event() {
                    display:'flex', alignItems:'center', padding:'5em 1em',paddingBottom:'13em',
                    flexDirection:'column', justifyContent:'center', backgroundColor: '#ecececc0'}}>
             <Typography variant='h3' sx={{ mb:'1em', color:'black', display:'flex', justifyContent:'center' }}>
-                Events
+                Weekly Scriptures
             </Typography>
     
             <Box sx={{ width:'100%', height:'100%', 
@@ -46,7 +47,7 @@ function Event() {
                         <Box sx={{ width: "30%", display:{xs:'none', sm:'block'}  }}>
                             <motion.div key={page-2} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                                         style={{ display: 'flex', justifyContent: 'right', alignItems: 'center' }}>
-                                <CardEvent title={eventCard[page-2].title} desc={eventCard[page-2].desc} img={eventCard[page-2].img} focus={false} date={eventCard[page-2].date} expandImg={false} scripture={false}/>
+                                <CardEvent title={eventCard[page-2].title} desc={eventCard[page-2].desc} img={eventCard[page-2].img} focus={false} date={eventCard[page-2].day} expandImg={false} scripture={true} scriptVerse={eventCard[page-2].scripture}/>
                             </motion.div>
                         </Box>
                     }
@@ -54,7 +55,7 @@ function Event() {
                         <Box sx={{ width: {xs:'100%', sm:'40%'}}}>
                             <motion.div key={page-1} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                                         style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <CardEvent title={eventCard[page-1].title} desc={eventCard[page-1].desc} img={eventCard[page-1].img} focus={true} date={eventCard[page-1].date} expandImg={false} scripture={false}/>
+                                <CardEvent title={eventCard[page-1].title} desc={eventCard[page-1].desc} img={eventCard[page-1].img} focus={true} date={eventCard[page-1].day} expandImg={false} scripture={true} scriptVerse={eventCard[page-2].scripture}/>
                             </motion.div>
                         </Box>
                     }
@@ -62,7 +63,7 @@ function Event() {
                         <Box sx={{ width: "30%", display:{xs:'none', sm:'block'}  }}>
                             <motion.div key={page} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                                         style={{ display: 'flex', justifyContent: 'left', alignItems: 'center' }}>
-                                <CardEvent title={eventCard[page].title} desc={eventCard[page].desc} img={eventCard[page].img} focus={false} date={eventCard[page].date} expandImg={false} scripture={false}/>
+                                <CardEvent title={eventCard[page].title} desc={eventCard[page].desc} img={eventCard[page].img} focus={false} date={eventCard[page].day} expandImg={false} scripture={true} scriptVerse={eventCard[page-2].scripture}/>
                             </motion.div>
                         </Box>
                     }
@@ -78,6 +79,3 @@ function Event() {
         </Box>
     )
 }
-
-
-export default Event;
