@@ -11,15 +11,24 @@ function About() {
     }, []);
 
     function firebaseGetAll() {
+        console.log("About first");
         const usersRef = databaseRef(db, 'admin/About');
         onValue(usersRef, (snapshot) => {
-            const data = snapshot.val();
-            const dataArray = [];
-            for(let id in data){
-                dataArray.push(data[id]);
+            if (snapshot.exists()) {
+                const data = snapshot.val();
+                console.log("Snapshot data:", data);
+                const dataArray = [];
+                for(let id in data){
+                    dataArray.push(data[id]);
+                }
+                console.log("first", dataArray);
+                setEventCard(dataArray);
+            } else {
+                console.log("No data available");
             }
-            setEventCard(dataArray);
-        });
+        }, (error) => {
+            console.error("Error reading data:", error);
+        });        
     }
 
   return (
