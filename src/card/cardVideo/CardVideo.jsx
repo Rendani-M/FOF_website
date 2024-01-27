@@ -39,7 +39,7 @@ function CardVideo() {
     return (
         <Card sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'column', md: 'column', lg:'row' }, width: {xs:'90%',sm:'80%'}, paddingBottom: '1em' }}>
             <Box sx={{ width: { xs: '100%',  sm: '100%', md: '100%', lg: '60%' }, height: { xs: '180px', sm:'400px', md: '400px', lg: 'auto'  }, overflow: 'hidden' }}>
-                <iframe width="100%" height="100%" src={videoCard?.video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen> 
+                <iframe width="100%" height="100%" src={videoCard?.video} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen> 
                 </iframe>
             </Box>
 
