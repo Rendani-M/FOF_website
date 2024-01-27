@@ -34,7 +34,7 @@ function CardEvent({title, desc, img, focus, date, expandImg, scripture}) {
             <CardMedia
                 component="img"
                 alt="green iguana"
-                sx={{ height: { xs: '50%', sm: '50%' } }} // Adjust based on your needs
+                sx={{ height: { xs: '50%', sm: '50%' } }} 
                 image={scripture ? (img ? img : "Bible_Quote.png") : (img ? img : "coming_soon.jpg")}
             />
 
@@ -46,7 +46,7 @@ function CardEvent({title, desc, img, focus, date, expandImg, scripture}) {
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     display: '-webkit-box',
-                    WebkitLineClamp: scripture? 5 : (focus? 5 : 1), // Adjust based on your needs
+                    WebkitLineClamp: scripture? 5 : (focus? 5 : 1), 
                     WebkitBoxOrient: 'vertical'
                 }}>
                     {scripture ? (desc) : (focus? desc: "")}
