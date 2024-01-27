@@ -17,14 +17,6 @@ function CardEvent({title, desc, img, focus, date, expandImg, scripture, scriptV
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    
-    function dateConverter(dbDate){
-        let date = new Date(dbDate);
-        let options = { year: 'numeric', month: 'long', day: 'numeric' };
-        let formattedDate = date.toLocaleDateString("en-US", options);
-        return formattedDate;
-    }
-
     return (
         <Card sx={{ 
             width: {sx: focus ? "100%" : "80%", sm: focus ? "90%" : "80%"}, 
@@ -58,7 +50,7 @@ function CardEvent({title, desc, img, focus, date, expandImg, scripture, scriptV
                     <>
                         <hr style={{ marginTop:'1em' }}/>
                         <Typography variant="span" color="text.secondary">
-                            Date: {scripture?date:dateConverter(date)}
+                            Date: {dateConverter(date)}
                         </Typography>
                         <hr style={{ marginBottom:'0.5em' }}/>
                     </>

@@ -10,7 +10,7 @@ import Services from '../../components/services/Services'
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Book from '../../components/Sales/Book'
-import Readings from '../../components/Scriptures/Readings'
+// import Readings from '../../components/Scriptures/Readings'
 
 const theme = createTheme({
   components: {

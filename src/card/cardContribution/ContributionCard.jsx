@@ -16,9 +16,9 @@ const StyledCardMedia = styled(CardMedia)({
 
 function ContributionCard({title, desc, img}) {
     // const [open, setOpen] = useState(false);
-    const { open, setOpen, setDesc } = useContext(OpenContext);
-    const handleOpen = () => {setOpen(true);setDesc(title);}
-    const handleClose = () => {setOpen(false);setDesc("");}
+    const { open, setOpen } = useContext(OpenContext);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     const theme = useTheme();
     const isXs = useMediaQuery(theme.breakpoints.down('xs'));
     const isSm = useMediaQuery(theme.breakpoints.between('sm', 'md'));
@@ -59,7 +59,7 @@ function ContributionCard({title, desc, img}) {
                             
                             <Box sx={style}>
                                 <Typography variant="h5" gutterBottom sx={{ marginTop:'1em' }}>{title}</Typography>
-                                <PaymentForm2 desc={title} handleClose={handleClose} />
+                                <PaymentForm2 handleClose={handleClose} />
                             </Box>
                         </Modal>
                     </Box>

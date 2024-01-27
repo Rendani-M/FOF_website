@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Box, Link, Typography } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -7,23 +7,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { db } from '../../firebase';
-import { ref as databaseRef, onValue } from "firebase/database";
 
 function Contact() {
-  const [contactsCard, setContactsCard] = useState({});
-  useEffect(() => {
-      firebaseGetAll();
-  }, []);
-
-  function firebaseGetAll() {
-      const usersRef = databaseRef(db, 'admin/contacts');
-      onValue(usersRef, (snapshot) => {
-          const data = snapshot.val();
-          setContactsCard(data);
-      });
-  }
-
   return (
     <Box sx={{ 
                display:'flex', 
@@ -41,15 +26,15 @@ function Contact() {
         <Typography variant="h4" gutterBottom>Contact Us</Typography>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <EmailIcon />
-          <Typography variant="body1">{contactsCard?.email}</Typography>
+          <Typography variant="body1">info@flamesoffire.co.za</Typography>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <PhoneIcon />
-          <Typography variant="body1">{contactsCard?.phone}</Typography>
+          <Typography variant="body1">(+27)11 859 1030</Typography>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <WhatsAppIcon />
-          <Typography variant="body1">{contactsCard?.whatsapp}</Typography>
+          <Typography variant="body1">(+27)833077132</Typography>
         </Box>
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1em', marginBottom: '1em', width:{xs:'100%', sm:'100%', md:'33%'} }}>
@@ -58,15 +43,15 @@ function Contact() {
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <LocationOnIcon />
-          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Zakariya Park (MAIN BRANCH): </Typography>{contactsCard?.zakariya_park}</Typography>
+          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Zakariya Park (MAIN BRANCH): </Typography>797 Clove drive Zakariya Park, Johannesburg</Typography>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <LocationOnIcon />
-          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Soweto Mofolo: </Typography>{contactsCard?.soweto_mofolo}</Typography>
+          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Soweto Mofolo: </Typography>732 Ramapulane street, Mofolo South, Soweto</Typography>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '0.5em' }}>
           <LocationOnIcon />
-          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Rustervaal:</Typography>{contactsCard?.rustervaal}</Typography>
+          <Typography variant="body1"><Typography variant="body1" sx={{ color:'blue', fontWeight:'bold' }}>Rustervaal:</Typography> 660 Ramaphosa Settlement, Rustervaal</Typography>
         </Box>
       </Box>
 
@@ -74,21 +59,21 @@ function Contact() {
           <Typography variant="h4" gutterBottom>Social Media</Typography>
           <Box sx={{ display:'flex', flexDirection:'row', alignItems:'center', gap:'0.5em' }}>
               <FacebookIcon />
-              <Link href={contactsCard?.facebook} color="inherit" underline='none' sx={{ wordBreak:"break-all" }}>
-                  Click to go to Facebook
+              <Link href="https://www.facebook.com/keflamesoffire" color="inherit" underline='none' sx={{ wordBreak:"break-all" }}>
+                  https://www.facebook.com/keflamesoffire
               </Link>
           </Box>
           
           <Box sx={{ display:'flex', flexDirection:'row', alignItems:'center', gap:'0.5em' }}>
               <YouTubeIcon />
-              <Link href={contactsCard?.youtube} color="inherit" underline='none' sx={{ wordBreak:"break-all" }}>
-                  Click to go to Youtube
+              <Link href="https://www.youtube.com/@flamesoffireministriesfof6097" color="inherit" underline='none' sx={{ wordBreak:"break-all" }}>
+                  https://www.youtube.com/@flamesoffireministriesfof6097
               </Link>
           </Box>
           <Box sx={{ display:'flex', flexDirection:'row', alignItems:'center', gap:'0.5em' }}>
               <InstagramIcon />
-              <Link href={contactsCard?.instagram} color="inherit" underline='none' sx={{ wordBreak:"break-all" }}>
-                  Click to go to Instagram
+              <Link href="https://www.instagram.com/flamesoffire.ministries/" color="inherit" underline='none' sx={{ wordBreak:"break-all" }}>
+                  https://www.instagram.com/flamesoffire.ministries/
               </Link>
           </Box> 
       </Box>
