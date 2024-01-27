@@ -13,7 +13,7 @@ const theme = createTheme({
     },
 });
 
-function CardEvent({title, desc, img, focus, date, expandImg}) {
+function CardEvent({title, desc, img, focus, date, expandImg, scripture}) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -35,7 +35,7 @@ function CardEvent({title, desc, img, focus, date, expandImg}) {
                 component="img"
                 alt="green iguana"
                 sx={{ height: { xs: '50%', sm: '50%' } }} // Adjust based on your needs
-                image={img? img: "coming_soon.jpg"}
+                image={scripture ? (img ? img : "Bible_Quote.png") : (img ? img : "coming_soon.jpg")}
             />
 
             <CardContent sx={{ mb:'0.2em', height: focus ? '42%' : '36%', overflowY: 'hidden' }}>
@@ -46,16 +46,16 @@ function CardEvent({title, desc, img, focus, date, expandImg}) {
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     display: '-webkit-box',
-                    WebkitLineClamp: focus ? 5 : 1, // Adjust based on your needs
+                    WebkitLineClamp: scripture? 5 : (focus? 5 : 1), // Adjust based on your needs
                     WebkitBoxOrient: 'vertical'
                 }}>
-                    {focus? desc: ""}
+                    {scripture ? (desc) : (focus? desc: "")}
                 </Typography>
                 {date ? (
                     <>
                         <hr style={{ marginTop:'1em' }}/>
                         <Typography variant="span" color="text.secondary">
-                            Date: {dateConverter(date)}
+                            Date: {scripture? date: dateConverter(date)}
                         </Typography>
                         <hr style={{ marginBottom:'0.5em' }}/>
                     </>
@@ -100,7 +100,7 @@ function CardEvent({title, desc, img, focus, date, expandImg}) {
                                     </Typography>
                                 </Box>
                                 <Box sx={{ height: 'auto', width:{sm:'100%', md:'45%'}, overflow:'hidden' }}>
-                                    <img src={img? img: "https://i.pinimg.com/1200x/d8/d2/68/d8d268ab051da48fb177a8aa08f90410.jpg"} alt="" style={{ width: '100%', height: '100%', objectFit:'contains' }} />
+                                    <img src={scripture ? (img ? img : "Bible_Quote.png") : (img ? img : "coming_soon.jpg")} alt="" style={{ width: '100%', height: '100%', objectFit:'contains' }} />
                                 </Box>
                             </Box>
                         </Box>

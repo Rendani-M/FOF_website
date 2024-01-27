@@ -25,16 +25,19 @@ export default function Readings() {
             for(let id in data){
                 dataArray.push(data[id]);
             }
-            dataArray.sort((a, b) => new Date(a.date) - new Date(b.date));
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            // Sort based on the day of the week
+            dataArray.sort((a, b) => days.indexOf(a.day) - days.indexOf(b.day));
+            console.log("dataArray", dataArray);
             setEventCard(dataArray);
         });
     }
 
     return (
         <Box sx={{  width:'100%', height:'100%',
-                   display:'flex', alignItems:'center', padding:'5em 1em',paddingBottom:'13em',
+                   display:'flex', alignItems:'center', padding:'0em 1em',paddingTop:'15em',
                    flexDirection:'column', justifyContent:'center', backgroundColor: '#ecececc0'}}>
-            <Typography variant='h3' sx={{ mb:'1em', color:'black', display:'flex', justifyContent:'center' }}>
+            <Typography variant='h3' sx={{ mb:'2.5em', color:'black', display:'flex', justifyContent:'center' }}>
                 Weekly Scriptures
             </Typography>
     
@@ -48,7 +51,7 @@ export default function Readings() {
                             <motion.div key={page-2} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                                         style={{ display: 'flex', justifyContent: 'right', alignItems: 'center' }}>
                                 <CardEvent title={eventCard[page-2].title} desc={eventCard[page-2].desc} img={eventCard[page-2].img} focus={false} date={eventCard[page-2].day} expandImg={false} scripture={true} scriptVerse={eventCard[page-2].scripture}/>
-                            </motion.div>
+                            </motion.div> 
                         </Box>
                     }
                     {eventCard[page-1] &&

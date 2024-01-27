@@ -10,6 +10,7 @@ import Services from '../../components/services/Services'
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Book from '../../components/Sales/Book'
+import Readings from '../../components/Scriptures/Readings'
 
 const theme = createTheme({
   components: {
@@ -62,6 +63,7 @@ function Home() {
         <div id="intro"><Intro/></div>
         <div id="about"><About/></div>
         <div id="services"><Services/></div>
+        <div id="services"><Readings/></div>
         <div id="book"><Book/></div>
         <div id="video"><Video/></div>
         <div id="event"><Event/></div>
