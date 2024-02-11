@@ -27,26 +27,26 @@ function CardEvent({title, desc, img, focus, date, expandImg, scripture}) {
 
     return (
         <Card sx={{ 
-            width: {sx: focus ? "100%" : "80%", sm: focus ? "90%" : "80%"}, 
-            height: focus ? '37em' : '28%',
+            width: {sx: focus ? "90%" : "80%", sm: focus ? "90%" : "80%"}, 
+            height: scripture? '25em':(focus ? '37em' : '28%'),
             transition: 'all 0.5s ease' // Add transition for smooth resizing
         }}>
             <CardMedia
                 component="img"
                 alt="green iguana"
-                sx={{ height: { xs: '50%', sm: '50%' } }} 
+                sx={{ height: scripture? '40%':'50%' }} 
                 image={scripture ? (img ? img : "Bible_Quote.png") : (img ? img : "coming_soon.jpg")}
             />
 
-            <CardContent sx={{ mb:'0.2em', height: focus ? '42%' : '36%', overflowY: 'hidden' }}>
-                <Typography gutterBottom variant="h5" component="div">
+            <CardContent sx={{ mb:'0.2em', height: scripture ?'45%':(focus ? '42%' : '36%'), overflowY: 'hidden' }}>
+                <Typography gutterBottom variant={scripture ? "span":"h5"} component="div">
                     {title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary" sx={{
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     display: '-webkit-box',
-                    WebkitLineClamp: scripture? 5 : (focus? 5 : 1), 
+                    WebkitLineClamp: scripture? 4 : (focus? 5 : 1), 
                     WebkitBoxOrient: 'vertical'
                 }}>
                     {scripture ? (desc) : (focus? desc: "")}

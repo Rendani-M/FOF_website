@@ -36,7 +36,7 @@ function Services() {
                  display:'flex', 
                  alignItems:'center', 
                  justifyContent:'center',
-                 padding:'4em 0em',
+                 padding:'4em 2em',
                  flexDirection:'column',
                  backgroundColor: '#ecececc0',
                  color: '#000',
